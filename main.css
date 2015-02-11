@@ -1,7 +1,8 @@
 
 body { 
-  padding-top: 40px; 
-  margin: 15px;
+  padding-top: 30px; 
+  background-color: beige;
+  /*margin: 15px;*/
 }
 h1, h2, h3, h4, h5, h6 {
   color: #00352e;
@@ -18,28 +19,65 @@ background-color: #00352e;
 .navbar-inverse .navbar-brand {
 color: #6ba099;
 }
+.infoHead {
+  background-color: beige;
+  padding: 15px;
+}
+.user {
+  text-align: center;
+}
+.user h2, .user h3, .user h4  {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 30px;
+}
 .templates {
   display: none;
 }
+.activities {
+  margin-left: 10px;
+}
 .activity {
-  width: 20%;
+  width: 22%;
+  min-width: 300px;
+  /*height: 200px;*/
   padding: 15px;
   background-color: #ffd52e;
   color: #fff;
   /*border: 2p  x solid;*/
   border-radius: 11px;
   box-shadow: 10px 10px 5px #888888;
+  overflow: hidden;
 }
 .activity.w2 {
-  width: 40%;
+  width: 45%;
+  min-width: 300px;
 }
 .activityBorder {
   padding: 20px;
   background-color: #ffa42c;
   border-radius: 7px;
+  height: 100%;
 }
 .activityName {
   font-size: 2.3em;
+}
+.activityPoints {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  background-color: #6ba099;
+  /*background-color: rgba(14, 81, 72, .6);*/
+  border-radius: 25px;
+  text-align: center;
+  left: -20px;
+  font-weight: bold;
+  top: -15px;
+}
+.activityPoints p {
+  position: absolute;
+  right: 13px;
+  bottom: 0;
 }
 .mouseClick {
   box-shadow: 2px 2px 2px #888888;
@@ -47,10 +85,17 @@ color: #6ba099;
   margin-left: 8px;
 }
 .mouseOver {
-  box-shadow: 12px 12px 12px #888888;
-  margin-top: -2px;
-  margin-left: -2px;
+  box-shadow: 11px 11px 11px #888888;
+  margin-top: -1px;
+  margin-left: -1px;
 }
+/*.gutter-sizer {
+  width: 2%;
+}
+
+.grid-sizer {
+  width: 18.4%;
+}*/
 
 /*  color palette  */
 .green {

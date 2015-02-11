@@ -2,7 +2,7 @@
 //////////////////////
 /// init variables ///
 
-var totalToday = 0;
+// var totalToday = 0;
 
 ///////////////
 /// classes ///
@@ -60,7 +60,7 @@ Tracked.prototype.render = function(){
 // console.log(this.name.length);
   this.$el.find('.activityName').text(this.name);
   this.$el.find('.activityDesc').text(this.description);
-  this.$el.find('.activityPoints').text(this.points);
+  this.$el.find('.activityPoints').html('<p>' + this.points + '</p>');
   // console.log(this.name);
 
   return this.$el;
@@ -76,9 +76,9 @@ User.prototype.render = function(){
     .append(
       $('<h2>').text(this.name))
     .append(
-      $('<h3>').text('Goal: ' + this.goal + ' points'))
+      $('<h3>').text('Your goal is ' + this.goal + ' points'))
     .append(
-      $('<h4>').text('You have ' + this.goal + ' points'));
+      $('<h3 class="userPoints">'));
   return this.$el;
 };
 
@@ -88,12 +88,13 @@ User.prototype.render = function(){
  */
 Day.prototype.addPoints = function(points, timeStamp){
   this.log.push({'points':points, 'timeStamp': timeStamp});
-  this.log.reduce(function(totalToday, pointsAdded){
-    console.log(totalToday); 
-    return totalToday + pointsAdded;
-  },0);
-  // return totalToday + points;
-  // this.books = this.books.concat([].slice.call(arguments));
+  var runningTotal =
+    _.pluck(this.log, 'points')
+    .reduce(function(total, item){
+      return total + item;
+  }, 0);
+
+  return runningTotal;
 };
 
 ////////////
@@ -132,7 +133,7 @@ var arrActivities = [
   },
   {
     name: 'Exercise / Diet Yesterday',
-    description: 'Did you get some sort of movement? Did you eat well? Why yesterday? Because I can\'t trust you today :-)',
+    description: 'Did you get some sort of movement... yesterday? Did you eat well... yesterday?',
     points: 2
   },
   {
@@ -170,7 +171,7 @@ var arrActivities = [
 //////////////
 /// jquery ///
 $(document).on('ready', function() {
-  $('.activities').before(audrey.render());
+  $('.infoHead').append(audrey.render());
 
   for (var i = 0; i < objTracked.length; i++){
     $('.activities').append(objTracked[i].render());
@@ -180,7 +181,11 @@ $(document).on('ready', function() {
   var pckry = new Packery( container, {
     // options
     itemSelector: '.activity',
-    gutter: 20,
+    gutter: 20
+    // "isHorizontal": true,
+    // rowHeight: 160
+    // gutter: 'gutter-sizer',
+    // columnWidth: '.grid-sizer',
   });
 
   $('.activity')
@@ -197,9 +202,9 @@ $(document).on('ready', function() {
       that = this;
       setTimeout(function(){
         $(that).removeClass('mouseClick');
-      }, 1000);
+      }, 500);
       var tracked = $(this).data('tracked');
-      $('.activities').before(today.addPoints(tracked.points, timeStamp));
+      $('.userPoints').text('You have ' + today.addPoints(tracked.points, timeStamp) + ' points today');
     });
 });
 
