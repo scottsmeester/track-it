@@ -1,6 +1,7 @@
 
 body { 
-  padding-top: 70px; 
+  padding-top: 40px; 
+  margin: 15px;
 }
 h1, h2, h3, h4, h5, h6 {
   color: #00352e;
@@ -20,9 +21,36 @@ color: #6ba099;
 .templates {
   display: none;
 }
-
-
-
+.activity {
+  width: 20%;
+  padding: 15px;
+  background-color: #ffd52e;
+  color: #fff;
+  /*border: 2p  x solid;*/
+  border-radius: 11px;
+  box-shadow: 10px 10px 5px #888888;
+}
+.activity.w2 {
+  width: 40%;
+}
+.activityBorder {
+  padding: 20px;
+  background-color: #ffa42c;
+  border-radius: 7px;
+}
+.activityName {
+  font-size: 2.3em;
+}
+.mouseClick {
+  box-shadow: 2px 2px 2px #888888;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+.mouseOver {
+  box-shadow: 12px 12px 12px #888888;
+  margin-top: -2px;
+  margin-left: -2px;
+}
 
 /*  color palette  */
 .green {

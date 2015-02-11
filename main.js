@@ -1,3 +1,9 @@
+
+//////////////////////
+/// init variables ///
+
+var totalToday = 0;
+
 ///////////////
 /// classes ///
 
@@ -16,9 +22,13 @@ var Tracked = function(name, description, points){
   targetCount++;
 };
 
-var today = new Date();
-var day = function(date){
+/**
+ * creating a Day object that is used for today's points
+ * @param {date} date today's date
+ */
+var Day = function(date){
   this.day = date || setDate(day);
+  this.log = [];
 };
 
 /**
@@ -37,13 +47,6 @@ var User = function(name, goal, activities){
 /// methods ///
 
 /**
- * add the activity to the day's total
- * @return {number} [description]
- */
-Tracked.prototype.addPoints = function(){
-
-};
-/**
  * displays the activity
  * @return {jQuery} render each activity button
  */
@@ -51,8 +54,10 @@ Tracked.prototype.render = function(){
   this.$el = $('#activityTemplate')
   .clone()
   .attr('id', '')
-  .addClass((this.index % 2 === 0)?'target-left':'target-right');
-
+  .addClass((this.name.length > 16)?'w2':'')
+  .data('tracked', this);
+  // .addClass((this.index % 3 === 0)?'w2':'');
+// console.log(this.name.length);
   this.$el.find('.activityName').text(this.name);
   this.$el.find('.activityDesc').text(this.description);
   this.$el.find('.activityPoints').text(this.points);
@@ -66,11 +71,29 @@ Tracked.prototype.render = function(){
  * @return {jQuery} jquery tag to render DOM
  */
 User.prototype.render = function(){
-  this.$el = $('<h2>')
+  this.$el = $('<div>')
     .addClass('user')
     .append(
-      $('<h2>').text(this.name));
+      $('<h2>').text(this.name))
+    .append(
+      $('<h3>').text('Goal: ' + this.goal + ' points'))
+    .append(
+      $('<h4>').text('You have ' + this.goal + ' points'));
   return this.$el;
+};
+
+/**
+ * add the activity to the day's total
+ * @return {number} the current points added up
+ */
+Day.prototype.addPoints = function(points, timeStamp){
+  this.log.push({'points':points, 'timeStamp': timeStamp});
+  this.log.reduce(function(totalToday, pointsAdded){
+    console.log(totalToday); 
+    return totalToday + pointsAdded;
+  },0);
+  // return totalToday + points;
+  // this.books = this.books.concat([].slice.call(arguments));
 };
 
 ////////////
@@ -79,7 +102,7 @@ User.prototype.render = function(){
 var arrActivities = [
   {
     name: 'Goals Review',
-    description: 'Review your vision board. Look at your goals. Remind yourself why you/re doing this!',
+    description: 'Review your vision board. Look at your goals. Remind yourself why you\'re doing this!',
     points: 3
   },
   {
@@ -109,7 +132,7 @@ var arrActivities = [
   },
   {
     name: 'Exercise / Diet Yesterday',
-    description: 'Did you get some sort of movement? Did you eat well? Why yesterday? Because I can/t trust you today :-)',
+    description: 'Did you get some sort of movement? Did you eat well? Why yesterday? Because I can\'t trust you today :-)',
     points: 2
   },
   {
@@ -147,15 +170,44 @@ var arrActivities = [
 //////////////
 /// jquery ///
 $(document).on('ready', function() {
-  $('.activities').append(audrey.render());
+  $('.activities').before(audrey.render());
+
   for (var i = 0; i < objTracked.length; i++){
     $('.activities').append(objTracked[i].render());
   }
+
+  var container = document.querySelector('.activities');
+  var pckry = new Packery( container, {
+    // options
+    itemSelector: '.activity',
+    gutter: 20,
+  });
+
+  $('.activity')
+    .mouseenter(function(){
+      $(this).addClass('mouseOver');
+    })
+    .mouseleave(function(){
+      $(this).removeClass('mouseOver');
+    })
+    .click(function(){
+      var timeStamp = new Date();
+      $(this).removeClass('mouseOver');
+      $(this).addClass('mouseClick');
+      that = this;
+      setTimeout(function(){
+        $(that).removeClass('mouseClick');
+      }, 1000);
+      var tracked = $(this).data('tracked');
+      $('.activities').before(today.addPoints(tracked.points, timeStamp));
+    });
 });
 
 ///////////////////////
 /// created objects ///
 var audrey = new User('Audrey', 25);
+var todaysDate = new Date();
+var today = new Day(todaysDate);
 
 var i;
 var objTracked = [];
