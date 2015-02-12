@@ -95,6 +95,10 @@ color: #6ba099;
 }
 .progress {
   background-color: #fff7aa;
+  margin-bottom: 0;
+}
+.list-group {
+ margin-bottom: 0; 
 }
 .progress-bar {
   background-color: #00352e;

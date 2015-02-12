@@ -92,12 +92,13 @@ Day.prototype.updatePoints = function(points) {
  */
 Day.prototype.updateLog = function(activity, points, timeStamp) {
   this.log.push({'activity':activity,'points':points,'timeStamp':timeStamp});
-  this.$el = $('#logTemplate')
+  this.$el = $('.list-group-item')
     .clone()
-    .attr('id', '')
     .data('day',this);
 
-  this.$el.find('.logActivityName').text('hello');
+  this.log.map()
+
+  // this.$el.find('.logActivityName').text('hello');
   // this.$el.find('.activityPoints').html('<p>' + this.points + ' <span>pts.<span></p>');
 
 // console.log(this);
@@ -222,7 +223,7 @@ $(document).on('ready', function() {
 
       $('.progress-bar').css('width', todaysPercent + '%').html(parseInt(todaysPercent) + '% complete');
 
-      // $('.progress').before(today.updateLog(tracked.name, tracked.points, timeStamp));
+      $('.list-group').append(today.updateLog(tracked.name, tracked.points, timeStamp));
 
       // console.log(todaysLog);
 
