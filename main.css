@@ -23,12 +23,9 @@ color: #6ba099;
   background-color: beige;
   padding: 15px;
 }
-.user {
-  text-align: center;
-}
 .user h2, .user h3, .user h4  {
   display: inline-block;
-  padding-left: 20px;
+  /*padding-left: 20px;*/
   padding-right: 30px;
 }
 .templates {
@@ -46,7 +43,7 @@ color: #6ba099;
   color: #fff;
   /*border: 2p  x solid;*/
   border-radius: 11px;
-  box-shadow: 10px 10px 5px #888888;
+  box-shadow: 5px 5px 5px #888888;
   overflow: hidden;
 }
 .activity.w2 {
@@ -63,39 +60,42 @@ color: #6ba099;
   font-size: 2.3em;
 }
 .activityPoints {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   position: absolute;
   background-color: #6ba099;
-  /*background-color: rgba(14, 81, 72, .6);*/
-  border-radius: 25px;
+  /* background-color: rgba(14, 81, 72, .6); */
+  border-radius: 30px;
   text-align: center;
-  left: -20px;
-  font-weight: bold;
-  top: -15px;
+  left: -12px;
+  /* font-weight: bold; */
+  top: -20px;
+  border: 6px solid #ffd52e;
 }
 .activityPoints p {
   position: absolute;
-  right: 13px;
+  right: 7px;
   bottom: 0;
+}
+.activity span {
+  font-size: .7em;
 }
 .mouseClick {
   box-shadow: 2px 2px 2px #888888;
-  margin-top: 8px;
-  margin-left: 8px;
+  margin-top: 3px;
+  margin-left: 3px;
 }
 .mouseOver {
-  box-shadow: 11px 11px 11px #888888;
+  box-shadow: 8px 8px 8px #888888;
   margin-top: -1px;
   margin-left: -1px;
 }
-/*.gutter-sizer {
-  width: 2%;
+.progress {
+  background-color: #fff7aa;
 }
-
-.grid-sizer {
-  width: 18.4%;
-}*/
+.progress-bar {
+  background-color: #00352e;
+}
 
 /*  color palette  */
 .green {

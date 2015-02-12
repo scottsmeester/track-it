@@ -2,7 +2,6 @@
 //////////////////////
 /// init variables ///
 
-// var totalToday = 0;
 
 ///////////////
 /// classes ///
@@ -60,7 +59,7 @@ Tracked.prototype.render = function(){
 // console.log(this.name.length);
   this.$el.find('.activityName').text(this.name);
   this.$el.find('.activityDesc').text(this.description);
-  this.$el.find('.activityPoints').html('<p>' + this.points + '</p>');
+  this.$el.find('.activityPoints').html('<p>' + this.points + ' <span>pts.<span></p>');
   // console.log(this.name);
 
   return this.$el;
@@ -171,7 +170,11 @@ var arrActivities = [
 //////////////
 /// jquery ///
 $(document).on('ready', function() {
-  $('.infoHead').append(audrey.render());
+
+  var todaysPoints = 0;
+  
+  $('.infoHead').append(theUser.render());
+  var usersGoal = theUser.goal;
 
   for (var i = 0; i < objTracked.length; i++){
     $('.activities').append(objTracked[i].render());
@@ -196,21 +199,29 @@ $(document).on('ready', function() {
       $(this).removeClass('mouseOver');
     })
     .click(function(){
+      var todaysPercent = 0;
       var timeStamp = new Date();
       $(this).removeClass('mouseOver');
       $(this).addClass('mouseClick');
       that = this;
       setTimeout(function(){
         $(that).removeClass('mouseClick');
-      }, 500);
+      }, 100);
       var tracked = $(this).data('tracked');
-      $('.userPoints').text('You have ' + today.addPoints(tracked.points, timeStamp) + ' points today');
+
+      todaysPoints = today.addPoints(tracked.points, timeStamp);
+      $('.userPoints').text('You have ' + todaysPoints + ' points today');
+
+      todaysPercent = todaysPoints / usersGoal * 100;
+
+      $('.progress-bar').css('width', todaysPercent + '%');
+  // console.log('todaysPercent: ', todaysPercent, 'usersGoal: ', usersGoal, 'todaysPoints: ', todaysPoints);
     });
 });
 
 ///////////////////////
 /// created objects ///
-var audrey = new User('Audrey', 25);
+var theUser = new User('Audrey', 25);
 var todaysDate = new Date();
 var today = new Day(todaysDate);
 
