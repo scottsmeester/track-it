@@ -1,6 +1,5 @@
-
 body { 
-  padding-top: 30px; 
+  padding-top: 51px; 
   background-color: beige;
   /*margin: 15px;*/
 }
@@ -19,10 +18,10 @@ background-color: #00352e;
 .navbar-inverse .navbar-brand {
 color: #6ba099;
 }
-.infoHead {
+/*.infoHead {
   background-color: beige;
   padding: 15px;
-}
+}*/
 .user h2, .user h3, .user h4  {
   display: inline-block;
   /*padding-left: 20px;*/
@@ -79,6 +78,10 @@ color: #6ba099;
 }
 .activity span {
   font-size: .7em;
+}
+.goalProgress {
+  position: relative;
+  left: 15px;
 }
 .mouseClick {
   box-shadow: 2px 2px 2px #888888;
