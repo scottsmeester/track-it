@@ -1,4 +1,6 @@
 
+
+
 //////////////////////
 /// init variables ///
 var todaysPoints = 0;
@@ -66,21 +68,24 @@ Tracked.prototype.render = function(){
  * prints to screen the current results
  * @return {jQuery} jquery tag to render DOM
  */
-Day.prototype.render = function(runningTotal, goal){
-  var txt1 = this.runningTotal + ' points today - your goal: ' + goal;
+Day.prototype.renderProgress = function(runningTotal, goal){
+  var txt1 = runningTotal + ' points today - your goal: ' + goal;
 
+  // console.log('txt1', txt1)
+;
   this.$el = $('<div>')
     .addClass('goalProgress')
     .append(txt1);
   return this.$el;
 };
 /**
- * will take in new points
+ * updates points total
  * @param  {number} points the number of points to add
  * @return {number}        the points the user has on the day
  */
-Day.prototype.updatePoints = function(points) {
+Day.prototype.updatePoints = function(points, activity, timeStamp) {
   this.runningTotal = this.runningTotal + points;
+  this.log.push({'points':points,'activity':activity, 'timeStamp':timeStamp});
   return this.runningTotal;
 };
 /**
@@ -90,19 +95,20 @@ Day.prototype.updatePoints = function(points) {
  * @param  {string} timeStamp [the time of the click]
  * @return {array}           [array of info for logging]
  */
-Day.prototype.updateLog = function(activity, points, timeStamp) {
-  this.log.push({'activity':activity,'points':points,'timeStamp':timeStamp});
-  this.$el = $('.list-group-item')
+Day.prototype.renderLog = function(points, activity, timeStamp) {
+  this.$el = $('#logItems')
     .clone()
-    .data('day',this);
+    .attr('id', '');
 
-  this.log.map()
-
-  // this.$el.find('.logActivityName').text('hello');
-  // this.$el.find('.activityPoints').html('<p>' + this.points + ' <span>pts.<span></p>');
-
-// console.log(this);
+  this.$el.find('.logActivity').text(activity);
+  this.$el.find('.logTime').text(moment(timeStamp).format('h:mm a'));
+  this.$el.find('.logPoints').text(points + ' points');
   return this.$el;
+};
+
+Day.prototype.removeLogItem = function(itemIndex){
+  this.log.splice(itemIndex, 1);
+  // console.log(this.log);
 };
 
 ////////////
@@ -193,7 +199,7 @@ $(document).on('ready', function() {
     gutter: 20
   });
 
-  $('.progress').append(today.render(todaysPoints, usersGoal)) ;
+  $('.progress').append(today.renderProgress(todaysPoints, usersGoal)) ;
 
   $('.activity')
     .mouseenter(function(){
@@ -212,22 +218,52 @@ $(document).on('ready', function() {
 
       var todaysPercent = 0;
       var timeStamp = new Date();
+      // timeStamp = moment(timeStamp, 'h:mm a')
       var tracked = $(this).data('tracked');
 
-      todaysPoints = today.updatePoints(tracked.points);
+      todaysPoints = today.updatePoints(tracked.points, tracked.name, timeStamp);
 
       $('.goalProgress').remove();
-      $('.progress').append(today.render(todaysPoints, usersGoal));
+      $('.progress').append(today.renderProgress(todaysPoints, usersGoal));
 
       todaysPercent = todaysPoints / usersGoal * 100;
 
       $('.progress-bar').css('width', todaysPercent + '%').html(parseInt(todaysPercent) + '% complete');
 
-      $('.list-group').append(today.updateLog(tracked.name, tracked.points, timeStamp));
+      $('.list-group').append(today.renderLog(tracked.points, tracked.name,timeStamp));
 
-      // console.log(todaysLog);
+      // $('.logRemove').click(function(){
+      //   // e.preventDefault();
+      //   console.log('hello');
+      // });
 
     });
+})
+  .on('click', '.logRemove', function(){
+    var usersGoal = theUser.goal;
+
+    var parent = $(this).parent();
+    var thisIndex = parent.index();
+
+    // var day = $(this).data('Day');
+
+
+    todaysPoints = todaysPoints - today.log[thisIndex].points;
+
+    today.removeLogItem(thisIndex);
+    parent.remove();
+
+    // $('.progress').children('.goalProgress').remove();
+    $('.progress').children('.goalProgress').remove();
+    $('.progress').append(today.renderProgress(todaysPoints, usersGoal));
+
+    todaysPercent = todaysPoints / usersGoal * 100;
+
+    $('.progress-bar').css('width', todaysPercent + '%').html(parseInt(todaysPercent) + '% complete');
+
+    // console.log('todaysPoints: ',newPoints, 'usersGoal: ',usersGoal, 'today; ',today.log, 'index: ', thisIndex);
+
+
 });
 
 ///////////////////////
@@ -241,11 +277,5 @@ var objTracked = [];
 for (i = 0; i < arrActivities.length; i++){
   objTracked[i] = new Tracked(arrActivities[i].name, arrActivities[i].description, arrActivities[i].points);
 }
-
-
-
-
-
-
 
 

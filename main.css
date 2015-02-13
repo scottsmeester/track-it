@@ -103,6 +103,23 @@ color: #6ba099;
 .progress-bar {
   background-color: #00352e;
 }
+.logItem {
+  display: inline-block;
+}
+.logActivity {
+width: 230px;
+}
+.logTime {
+width: 100px;
+}
+.glyphicon-remove {
+  color: #ff2b32;
+  font-size: 1.4em;
+  top: 4px;
+}
+.logRemove {
+ width: 30px; 
+}
 
 /*  color palette  */
 .green {
