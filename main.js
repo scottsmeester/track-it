@@ -3,7 +3,9 @@
 
 //////////////////////
 /// init variables ///
-var todaysPoints = 0;
+// var runningTotal = 0;
+var timeStamp;
+var tracked;
 
 ///////////////
 /// classes ///
@@ -28,9 +30,10 @@ var Tracked = function(name, description, points){
  * @param {date} date today's date
  * @param {runningTotal} [varname] [description]
  */
-var Day = function(date, runningTotal){
+var Day = function(date){
   this.day = date || setDate(day);
-  this.runningTotal = runningTotal || 0;
+  this.runningTotal = 0;
+  this.runningPercent = 0;
   this.log = [];
 };
 
@@ -68,11 +71,9 @@ Tracked.prototype.render = function(){
  * prints to screen the current results
  * @return {jQuery} jquery tag to render DOM
  */
-Day.prototype.renderProgress = function(runningTotal, goal){
-  var txt1 = runningTotal + ' points today - your goal: ' + goal;
+Day.prototype.renderProgress = function(goal){
+  var txt1 = this.runningTotal + ' points today - your goal: ' + goal + ' points';
 
-  // console.log('txt1', txt1)
-;
   this.$el = $('<div>')
     .addClass('goalProgress')
     .append(txt1);
@@ -105,11 +106,18 @@ Day.prototype.renderLog = function(points, activity, timeStamp) {
   this.$el.find('.logPoints').text(points + ' points');
   return this.$el;
 };
+/**
+ * removes from the log/database
+ * @param  {number} itemIndex the item to remove
+ * @return {n/a}           nothing to see here, folks- just removing stuff
+ */
+// Day.prototype.removeLogItem = function(itemIndex){
+//   this.log.splice(itemIndex, 1);
+// };
 
-Day.prototype.removeLogItem = function(itemIndex){
-  this.log.splice(itemIndex, 1);
-  // console.log(this.log);
-};
+// Day.prototype.updateRunningTotal = function(runningTotal){
+
+// }
 
 ////////////
 /// data ///
@@ -199,7 +207,7 @@ $(document).on('ready', function() {
     gutter: 20
   });
 
-  $('.progress').append(today.renderProgress(todaysPoints, usersGoal)) ;
+  $('.progress').append(today.renderProgress(usersGoal)) ;
 
   $('.activity')
     .mouseenter(function(){
@@ -216,17 +224,16 @@ $(document).on('ready', function() {
         $(that).removeClass('mouseClick');
       }, 100);
 
-      var todaysPercent = 0;
-      var timeStamp = new Date();
-      // timeStamp = moment(timeStamp, 'h:mm a')
-      var tracked = $(this).data('tracked');
+      // var todaysPercent = 0;
+      timeStamp = new Date();
+      tracked = $(this).data('tracked');
 
-      todaysPoints = today.updatePoints(tracked.points, tracked.name, timeStamp);
+      runningTotal = today.updatePoints(tracked.points, tracked.name, timeStamp);
 
       $('.goalProgress').remove();
-      $('.progress').append(today.renderProgress(todaysPoints, usersGoal));
+      $('.progress').append(today.renderProgress(usersGoal));
 
-      todaysPercent = todaysPoints / usersGoal * 100;
+      todaysPercent = runningTotal / usersGoal * 100;
 
       $('.progress-bar').css('width', todaysPercent + '%').html(parseInt(todaysPercent) + '% complete');
 
@@ -245,23 +252,34 @@ $(document).on('ready', function() {
     var parent = $(this).parent();
     var thisIndex = parent.index();
 
-    // var day = $(this).data('Day');
+    // var day = $(this).data('tracked');
+    // tracked = $(this).data('tracked');
+    // console.log(today.log[thisIndex]);
 
 
-    todaysPoints = todaysPoints - today.log[thisIndex].points;
+    // runningTotal = runningTotal - today.log[thisIndex].points;
+    timeStamp = new Date();
 
-    today.removeLogItem(thisIndex);
+    // console.log('name: ',today.log[thisIndex].name);
+
+    // update points
+    var newTotal = today
+      .updatePoints(
+        -Math.abs(today.log[thisIndex].points),
+        today.log[thisIndex].name,
+        timeStamp);
+
+    console.log('newTotal: ',newTotal);
+
+    // today.removeLogItem(thisIndex);
     parent.remove();
 
-    // $('.progress').children('.goalProgress').remove();
     $('.progress').children('.goalProgress').remove();
-    $('.progress').append(today.renderProgress(todaysPoints, usersGoal));
+    $('.progress').append(today.renderProgress(usersGoal));
 
-    todaysPercent = todaysPoints / usersGoal * 100;
+    todaysPercent = newTotal / usersGoal * 100;
 
     $('.progress-bar').css('width', todaysPercent + '%').html(parseInt(todaysPercent) + '% complete');
-
-    // console.log('todaysPoints: ',newPoints, 'usersGoal: ',usersGoal, 'today; ',today.log, 'index: ', thisIndex);
 
 
 });
