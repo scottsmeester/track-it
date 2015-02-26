@@ -5,6 +5,8 @@ TrackIt Todo's:
       ☐ Enter form contents into/out of data
   ☐ Get a version on Heroku
 
+  ☐ Get help from Chris for bug
+
 Nice to Have's:
   ☐ Get goal system working
   ☐ Randomize colors behind the activities
@@ -12,7 +14,12 @@ Nice to Have's:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
- ✔ Get each acitivity click to add points @done (15-02-12 10:11) @project(TrackIt Todo's)
+ ✔ get JS working @done (15-02-25 17:26) @project(TrackIt Todo's)
+ ✔ Port over existing page @done (15-02-25 17:26) @project(TrackIt Todo's)
+ ✔ get main.css activated @done (15-02-25 16:57) @project(TrackIt Todo's)
+ ✔ get bootstrap activated @done (15-02-25 16:57) @project(TrackIt Todo's)
+ ✔ get HTML ported over @done (15-02-25 16:57) @project(TrackIt Todo's)
  ✔ Get points in the corner @done (15-02-12 10:12) @project(TrackIt Todo's)
+ ✔ Get each acitivity click to add points @done (15-02-12 10:11) @project(TrackIt Todo's)
  ✔ Get each activity in a button @done (15-02-10 14:42) @project(TrackIt Todo's)
  ✔ Divide the activity buttons evenly horizontally and vertically @done (15-02-10 14:42) @project(TrackIt Todo's)
