@@ -2,6 +2,12 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var indexController = require('./controllers/index.js');
 
+// Require mongoose
+var mongoose = require('mongoose');
+
+// Connect to a database
+mongoose.connect('mongodb://localhost/salesTools');
+
 var app = express();
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');

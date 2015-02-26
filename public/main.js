@@ -122,73 +122,73 @@ Day.prototype.renderLog = function(points, activity, timeStamp) {
 ////////////
 /// data ///
 
-var arrActivities = [
-  {
-    name: 'Goals Review',
-    description: 'Review your vision board. Look at your goals. Remind yourself why you\'re doing this!',
-    points: 3
-  },
-  {
-    name: 'Digital Connection',
-    description: 'Be it phone, Twitter, Facebook, etc., connecting with somebody puts you and your message top of mind!',
-    points: 3
-  },
-  {
-    name: 'Voice',
-    description: 'Tried to call somebody, but only get voicemail? Leave a message with your purpose and hope...',
-    points: 1
-  },
-  {
-    name: 'Hand Written Correspondence',
-    description: 'Use the US Post Office to help get a higher than 90% open rate!',
-    points: 4
-  },
-  {
-    name: 'Face to Face',
-    description: 'Coffee, lunch, ',
-    points: 5
-  },
-  {
-    name: 'Professional Event',
-    description: 'Networking, meetups, presentations...',
-    points: 7
-  },
-  {
-    name: 'Exercise / Diet Yesterday',
-    description: 'Did you get some sort of movement... yesterday? Did you eat well... yesterday?',
-    points: 2
-  },
-  {
-    name: 'Blog Post',
-    description: 'Develop some helpful content. Need an idea? Answer the last question a prospect asked.',
-    points: 6
-  },
-  {
-    name: 'Give Referral',
-    description: 'Help somebody else out and give a great referral!',
-    points: 3
-  },
-  {
-    name: 'Newsletter Article',
-    description: '',
-    points: 6
-  },
-  {
-    name: 'E-mail',
-    description: '',
-    points: 1
-  },
-  {
-    name: 'Thank You Note',
-    description: 'Nothing like getting a personal note.',
-    points: 1
-  },
-  {
-    name: 'LinkedIn Connection',
-    description: 'Mark up a point for a new high-quality connection on LinkedIn.',
-    points: 1
-  },
-];
+// var arrActivities = [
+//   {
+//     name: 'Goals Review',
+//     description: 'Review your vision board. Look at your goals. Remind yourself why you\'re doing this!',
+//     points: 3
+//   },
+//   {
+//     name: 'Digital Connection',
+//     description: 'Be it phone, Twitter, Facebook, etc., connecting with somebody puts you and your message top of mind!',
+//     points: 3
+//   },
+//   {
+//     name: 'Voice',
+//     description: 'Tried to call somebody, but only get voicemail? Leave a message with your purpose and hope...',
+//     points: 1
+//   },
+//   {
+//     name: 'Hand Written Correspondence',
+//     description: 'Use the US Post Office to help get a higher than 90% open rate!',
+//     points: 4
+//   },
+//   {
+//     name: 'Face to Face',
+//     description: 'Coffee, lunch, ',
+//     points: 5
+//   },
+//   {
+//     name: 'Professional Event',
+//     description: 'Networking, meetups, presentations...',
+//     points: 7
+//   },
+//   {
+//     name: 'Exercise / Diet Yesterday',
+//     description: 'Did you get some sort of movement... yesterday? Did you eat well... yesterday?',
+//     points: 2
+//   },
+//   {
+//     name: 'Blog Post',
+//     description: 'Develop some helpful content. Need an idea? Answer the last question a prospect asked.',
+//     points: 6
+//   },
+//   {
+//     name: 'Give Referral',
+//     description: 'Help somebody else out and give a great referral!',
+//     points: 3
+//   },
+//   {
+//     name: 'Newsletter Article',
+//     description: '',
+//     points: 6
+//   },
+//   {
+//     name: 'E-mail',
+//     description: '',
+//     points: 1
+//   },
+//   {
+//     name: 'Thank You Note',
+//     description: 'Nothing like getting a personal note.',
+//     points: 1
+//   },
+//   {
+//     name: 'LinkedIn Connection',
+//     description: 'Mark up a point for a new high-quality connection on LinkedIn.',
+//     points: 1
+//   },
+// ];
 
 //////////////
 /// jquery ///
