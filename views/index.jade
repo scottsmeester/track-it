@@ -13,23 +13,23 @@ block content
 				ul.list-group
 
 	div.activities
-		div.templates
-			div.activity(id="activityTemplate")
+		for activity in activities
+			div.activity
 				div.activityBorder
-					div.activityName
-					div.activityDesc
+					div.activityName= activity.name
+					div.activityDesc= activity.description
 					div.activityPoints
-			li.list-group-item(id="logItems")
-				a.logRemove(href="#")
-					span.glyphicon.glyphicon-remove
-				div.logItem.logActivity
-				div.logItem.logTime
-				div.logItem.logPoints
+						p= activity.points
+							| &nbsp;
+							span pts.
+		//- li.list-group-item(id="logItems")
+		//- 	a.logRemove(href="#")
+		//- 		span.glyphicon.glyphicon-remove
+		//- 	div.logItem.logActivity
+		//- 	div.logItem.logTime
+		//- 	div.logItem.logPoints
 	
 	script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js")
-
 	script(src="//cdnjs.cloudflare.com/ajax/libs/packery/1.3.2/packery.pkgd.min.js")
-
 	script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
-
 	script(src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js")

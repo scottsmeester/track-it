@@ -1,0 +1,28 @@
+Features:
+  ✔ Database architecture for a list of activities @done (15-02-26 17:13)
+  ✔ Seed the database @done (15-02-26 17:13)
+  ☐ Display the full list of activities on the homepage
+    ✔ Set up controller to pass list of activities to view @done (15-02-26 17:42)
+    ☐ Update index view to loop/display each beer
+      ☐ Find what I was doing in jsmain to get my data rendered 
+  ☐ Get in that bootstrap
+  ☐ Add a new beer from a form
+    ☐ Create the form
+    ☐ Add in jQuery
+    ☐ Set up a main.js and add event for form submission
+    ☐ Make an ajax call to server with new beer info
+    ☐ Server needs to send back newly created beer (save to DB)
+    ☐ Update list to include data from new beer
+  ☐ Delete a beer from the list
+    ☐ Add delete button to page
+    ☐ Setup click handler for button
+    ☐ Make ajax request to server to delete item
+    ☐ Once deleted, update DOM
+    ☐ Update the ajax add to support adding the class and ID structure
+  ☐ View an individual beer
+  ☐ Edit a beer
+  ☐ Rank a beer
+  ☐ Drink a beer(s)
+
+Features that would really set this app apart:
+  ☐ Form validation
