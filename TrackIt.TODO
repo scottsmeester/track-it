@@ -1,12 +1,17 @@
 TrackIt Todo's:
-  ☐ Get activity data in Mongo
-    ☐ CRUD for activities
-      ☐ Get HTML form
-      ☐ Enter form contents into/out of data
+  ☐ User designation and preferences functionality
+    ☐ All data needs to be drawn from DB based on individual user
+    ☐ 
+  ☐ Get progress bar working
+      ☐ Refactor logging to fill User array
+      ☐ Get/set current running total
+  ☐ CRUD for activities
+    ☐ Get HTML form
+    ☐ Enter form contents into/out of data
   ☐ Get a version on Heroku
 
   ☐ Get help from Chris for bug
-  ☐ Get help squelching Git push 
+  ☐ Get help squelching Git push message
 
 Nice to Have's:
   ☐ Get goal system working
@@ -15,6 +20,13 @@ Nice to Have's:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Get/set users goal @done (15-02-28 08:37) @project(TrackIt Todo's)
+ ✔ Get controller to show default user info @done (15-02-28 08:37) @project(TrackIt Todo's)
+ ✔ Log every click in database @done (15-02-28 08:35) @project(TrackIt Todo's)
+ ✔ create log controller @done (15-02-27 23:27) @project(TrackIt Todo's)
+ ✔ set up route for log controller @done (15-02-27 22:13) @project(TrackIt Todo's)
+ ✔ Set up for ajax insert @done (15-02-27 21:38) @project(TrackIt Todo's)
+ ✔ Get activity data in Mongo @done (15-02-27 12:01) @project(TrackIt Todo's)
  ✔ get JS working @done (15-02-25 17:26) @project(TrackIt Todo's)
  ✔ Port over existing page @done (15-02-25 17:26) @project(TrackIt Todo's)
  ✔ get main.css activated @done (15-02-25 16:57) @project(TrackIt Todo's)

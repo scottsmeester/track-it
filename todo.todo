@@ -3,9 +3,9 @@ Features:
   ✔ Seed the database @done (15-02-26 17:13)
   ☐ Display the full list of activities on the homepage
     ✔ Set up controller to pass list of activities to view @done (15-02-26 17:42)
-    ☐ Update index view to loop/display each beer
-      ☐ Find what I was doing in jsmain to get my data rendered 
-  ☐ Get in that bootstrap
+    ✔ Update index view to loop/display each beer @done (15-02-27 11:24)
+      ✔ Find what I was doing in jsmain to get my data rendered  @done (15-02-27 11:24)
+  ✔ Get in that bootstrap @done (15-02-27 11:24)
   ☐ Add a new beer from a form
     ☐ Create the form
     ☐ Add in jQuery

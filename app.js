@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var indexController = require('./controllers/index.js');
+var logActivityController = require('./controllers/logActivity.js');
 
 // Require mongoose
 var mongoose = require('mongoose');
@@ -15,6 +16,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', indexController.index);
+
+app.post('/logActivity', logActivityController.logActivity);
 
 var server = app.listen(6403, function() {
 	console.log('Express server listening on port ' + server.address().port);
