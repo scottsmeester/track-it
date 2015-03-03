@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', indexController.index);
 
-app.post('/logActivity', logActivityController.logActivity);
+app.post('/logActivity/:user_id', logActivityController.logActivity);
 
 var server = app.listen(6403, function() {
 	console.log('Express server listening on port ' + server.address().port);

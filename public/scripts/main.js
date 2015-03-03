@@ -11,7 +11,7 @@ $(document).on('ready', function(){
     gutter: 20
   });
 
-  var usersGoal = 25; // setting default
+  // var usersGoal = 25; // setting default
   // $('.progress').append(today.renderProgress(usersGoal)) ;
 
   $(document).on('click', '.activity', logActivity);
@@ -67,19 +67,21 @@ var logActivity = function(){
     $(that).addClass('mouseOver');
   }, 40);
 
-  var timeStamp = new Date();
+  // data from client
   var activity = $(this).find('.activityName').text();
   var points = $(this).find('.activityPoints')
     .text()
     .split('').slice(0,1); // leaving just a number
 
+  // get user ID
+  var targetId = $(this).parent().attr('data-id');
+
   var whatToLog = {
-    timestamp: timeStamp,
     activity: activity,
     points: parseInt(points)
   };
 
-  $.post('/logActivity', whatToLog, function(returnData){
+  $.post('/logActivity/' + targetId, whatToLog ,function(returnData){
     console.log('Successfully posted data to DB!', returnData);
   });
 

@@ -1,7 +1,11 @@
 TrackIt Todo's:
   ☐ User designation and preferences functionality
     ☐ All data needs to be drawn from DB based on individual user
-    ☐ 
+    ✔ Global variable set with ID of guest account @done (15-03-01 17:49)
+      ✔ Get the user's name printed on index page, and then you can but their data_id on the html element and pass it to logging activities @done (15-03-01 17:49)
+    ✔ Get today's goal on header bar @done (15-03-02 17:13)
+  ☐ Get activity log working
+  ☐ Get todays points and percentage
   ☐ Get progress bar working
       ☐ Refactor logging to fill User array
       ☐ Get/set current running total

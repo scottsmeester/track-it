@@ -122,6 +122,14 @@ width: 100px;
 .logRemove {
  width: 30px; 
 }
+.theUser {
+/* float: right; */
+position: absolute;
+right: 20px;
+/*top: 15px;*/
+/*font-size: 1.2em;*/
+/*color: #6ba099;*/
+}
 
 /*  color palette  */
 .green {

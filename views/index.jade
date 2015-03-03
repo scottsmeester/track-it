@@ -4,7 +4,7 @@ block content
 	div.progress
 		div.progress-bar.progress-bar-striped.active(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100")
 		div.goalProgress 
-			span#todayPoints 0
+			span#todayPoints= points
 			| &nbsp;points today - your goal: 
 			span= goal
 			| &nbsp;points
@@ -17,7 +17,7 @@ block content
 			div.panel-collapse.collapse(id="collapseListGroup1", role="tabpanel", aria-labelledby="collapseListGroupHeading1", aria-expanded="true")
 				ul.list-group
 
-	div.activities
+	div.activities(data-id="#{user_id}")
 		for activity in activities
 			div.activity
 				div.activityBorder

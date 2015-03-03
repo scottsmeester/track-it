@@ -1,20 +1,24 @@
-var LogItem = require('../models/logModel.js');
 var User = require('../models/userModel.js');
-var Day = require('../models/dayModel.js');
 
 var logActivityController = {
   logActivity: function(req, res){
 
-    var newLogItem = req.body;
-
-    var logItem = new LogItem(newLogItem);
+    // designate which user
+    var userId = req.params.user_id;
     
 
-    console.log(logItem);
 
-    // logItem.save(function(err, savedLogItem){
-    //   console.log(savedLogItem);
-    // });
+    // var logItem = new LogItem(newLogItem);
+
+    // console.log(newLogItem);
+
+    var newLogItem = req.body;
+
+    console.log(userId);
+
+    User.findByIdAndUpdate(userId, newLogItem, function(err, result){
+      res.send(result);
+    });
   }
 };
 
