@@ -81,9 +81,22 @@ var logActivity = function(){
     points: parseInt(points)
   };
 
+  var todaysGoal = $('span#goal').text();
+
   $.post('/logActivity/' + targetId, whatToLog ,function(returnData){
-    console.log('Successfully posted data to DB!', returnData);
+    // console.log('Successfully posted data to DB!', returnData.todaysTotal);
+    $('#todaysPoints').text(returnData.todaysTotal);
+
+    var todaysPercent = (returnData.todaysTotal / todaysGoal) * 100
+    $('.progress-bar').css('width', parseInt(todaysPercent) + '%').html(parseInt(todaysPercent) + '% complete!');
   });
+
+  // $('.goalProgress').remove();
+      // $('.progress').append(today.renderProgress(usersGoal));
+
+      // todaysPercent = runningTotal / usersGoal * 100;
+
+      // $('.progress-bar').css('width', todaysPercent + '%').html(parseInt(todaysPercent) + '% complete');
 
   // console.log(whatToLog);
 };

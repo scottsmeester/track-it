@@ -5,10 +5,10 @@ var userSchema = mongoose.Schema({
   firstname: {type: String, default: 'Guest'},
   lastname: {type: String},
   day: [{
-    date: {type: Date, default: new Date()},
+    date: {type: Date, default: Date.now},
     goal: {type: Number, default: 25},
     loggedItems: [{
-      timestamp: {type: Date, default: new Date()},
+      timestamp: {type: Date, default: Date.now},
       activity: String,
       points: Number,
       legit: {type: Boolean, default: true}
@@ -19,6 +19,7 @@ var userSchema = mongoose.Schema({
 userSchema.methods.getToday = function(cb){
   var today = (new Date()).toDateString();
   var todayObj = _.find(this.day, function(day){
+    // console.log(day.date.toDateString(), today);
     return day.date.toDateString() === today;
   });
   if(todayObj){
@@ -28,7 +29,8 @@ userSchema.methods.getToday = function(cb){
     // create date obj, push  
     this.day.push({});
     this.save(function(err, result){
-      var todayObj = _.find(this.day, function(day){
+      var todayObj = _.find(result.day, function(day){
+        console.log(day.date.toDateString(), today);
         return day.date.toDateString() === today;
       });
       cb(null, todayObj);
@@ -36,9 +38,15 @@ userSchema.methods.getToday = function(cb){
   }
 };
 
-userSchema.methods.getDaysPoints = function(){
-  // var today = this.getToday();
-  // console.log(today);
+userSchema.methods.pushLogItem = function(logItem, cb){
+  var user = this;
+  this.getToday(function(err, today){
+    today.loggedItems.push(logItem);
+    user.save(function(err, results){
+      // return results;
+      results.getToday(cb);
+    });
+  });
 };
 
 var User = mongoose.model('User', userSchema);

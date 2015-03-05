@@ -9,6 +9,9 @@ var mongoose = require('mongoose');
 // Connect to a database
 mongoose.connect('mongodb://localhost/salesTools');
 
+// Seed the database:
+require('./models/seedScripts/seedDB.js');
+
 var app = express();
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
