@@ -7,10 +7,8 @@ var indexController = {
 	index: function(req, res) {
     User.findOne({firstname: 'Scott'},function(err,userInfo){
       if (err) throw err;
-      // console.log('userInfo: ', userInfo);
         userInfo.getToday(function(err, today){
           if (err) throw err;
-          // console.log(today);
           var todaysGoal = today.goal;
           Activity.find({}, function(err, activitiesFromDB){
             if(err) throw err;

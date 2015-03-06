@@ -26,7 +26,6 @@ userSchema.methods.getToday = function(cb){
     cb(null, todayObj);
   }
   else {
-    // create date obj, push  
     this.day.push({});
     this.save(function(err, result){
       var todayObj = _.find(result.day, function(day){

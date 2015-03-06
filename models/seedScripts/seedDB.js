@@ -7,26 +7,26 @@ User.find({}, function(err, documents){
     var smeester = new User({
       firstname : "Scott",
       lastname : "Smeester",
-      // day : [ {
-      //   goal : 25,
-      //   loggedItems:[{
-      //     activity:"Goals Review",
-      //     points: 3,
-      //     legit: true
-      //   },{
-      //     activity:"Voice",
-      //     points: 1,
-      //     legit: true
-      //   },{
-      //     activity:"Professional Event",
-      //     points: 7,
-      //     legit: true
-      //   },{
-      //     activity:"Thank You Note",
-      //     points: 1,
-      //     legit: true
-      //   }],
-      // }]
+      day : [ {
+        goal : 25,
+        loggedItems:[{
+          activity:"Goals Review",
+          points: 3,
+          legit: true
+        },{
+          activity:"Voice",
+          points: 1,
+          legit: true
+        },{
+          activity:"Professional Event",
+          points: 7,
+          legit: true
+        },{
+          activity:"Thank You Note",
+          points: 1,
+          legit: true
+        }],
+      }]
     });
     smeester.save();
 
