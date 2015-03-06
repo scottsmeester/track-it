@@ -23,29 +23,7 @@ $(document).on('ready', function(){
     .mouseleave(function(){
       $(this).removeClass('mouseOver');
     });
-    // .click(function(){
-
-
-
-      // var addToLog = function(e){
-
-      // };
-
-
-      // var todaysPercent = 0;
-      // timeStamp = new Date();
-      // tracked = $(this).data('tracked');
-
-      // console.log(tracked);
-
-      // runningTotal = today.updatePoints(tracked.points, tracked.name, timeStamp);
-
-      // $('.goalProgress').remove();
-      // $('.progress').append(today.renderProgress(usersGoal));
-
-      // todaysPercent = runningTotal / usersGoal * 100;
-
-      // $('.progress-bar').css('width', todaysPercent + '%').html(parseInt(todaysPercent) + '% complete');
+    
 
       // $('.list-group').append(today.renderLog(tracked.points, tracked.name,timeStamp));
 
@@ -53,8 +31,6 @@ $(document).on('ready', function(){
       //   // e.preventDefault();
       //   console.log('hello');
       // });
-
-    // });
 
 });
 
@@ -86,19 +62,9 @@ var logActivity = function(){
   $.post('/logActivity/' + targetId, whatToLog ,function(returnData){
     // console.log('Successfully posted data to DB!', returnData.todaysTotal);
     $('#todaysPoints').text(returnData.todaysTotal);
-
     var todaysPercent = (returnData.todaysTotal / todaysGoal) * 100
-    $('.progress-bar').css('width', parseInt(todaysPercent) + '%').html(parseInt(todaysPercent) + '% complete!');
+    $('.progress-bar').css('width', Math.floor(todaysPercent) + '%').html(Math.floor(todaysPercent) + '% complete!');
   });
-
-  // $('.goalProgress').remove();
-      // $('.progress').append(today.renderProgress(usersGoal));
-
-      // todaysPercent = runningTotal / usersGoal * 100;
-
-      // $('.progress-bar').css('width', todaysPercent + '%').html(parseInt(todaysPercent) + '% complete');
-
-  // console.log(whatToLog);
 };
 
 
