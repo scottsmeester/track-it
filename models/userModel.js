@@ -19,7 +19,6 @@ var userSchema = mongoose.Schema({
 userSchema.methods.getToday = function(cb){
   var today = (new Date()).toDateString();
   var todayObj = _.find(this.day, function(day){
-    // console.log(day.date.toDateString(), today);
     return day.date.toDateString() === today;
   });
   if(todayObj){
@@ -42,7 +41,6 @@ userSchema.methods.pushLogItem = function(logItem, cb){
   this.getToday(function(err, today){
     today.loggedItems.push(logItem);
     user.save(function(err, results){
-      // return results;
       results.getToday(cb);
     });
   });
