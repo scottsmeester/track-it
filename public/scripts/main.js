@@ -43,17 +43,25 @@ var logActivity = function(){
   var points = $(this).find('.activityPoints')
     .text()
     .split('').slice(0,1);
+    // console.log(points);
   var targetId = $(this).parent().attr('data-id');
+  // build the object to pass
   var whatToLog = {
     activity: activity,
     points: parseInt(points)
   };
 
-  var todaysGoal = $('span#goal').text();
+  var todaysGoal = $('#goal').text();
 
-  // console.log('hello');
-
+  // ajax call to post the activity to the mongo DB
+  /**
+   * ajax call to post the activity to the mongo db
+   * @param  {[string|} the URL with the ID of the User
+   * @param  {[object|} whatToLog passed to be entered into DB
+   * @param  {[callback func|} this callback function will create update todays total and todays percent
+   */
   $.post('/logActivity/' + targetId, whatToLog ,function(returnData){
+
     $('#todaysPoints').text(returnData.todaysTotal);
     var todaysPercent = (returnData.todaysTotal / todaysGoal) * 100;
     $('.progress-bar').css('width', Math.floor(todaysPercent) + '%').html(Math.floor(todaysPercent) + '% complete!');

@@ -8,11 +8,11 @@ var gulp = require('gulp'),
 var paths = {
   scripts: {
     src: 'public/scripts/*.js',
-    dest: 'public/gulp'
+    dest: 'public/minified'
   },
   css: {
     src: 'public/*.css',
-    dest: 'public/gulp'
+    dest: 'public/minified'
   }
 };
 

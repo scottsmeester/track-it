@@ -44,6 +44,7 @@ color: #6ba099;
   border-radius: 11px;
   box-shadow: 5px 5px 5px #888888;
   overflow: hidden;
+  cursor: pointer;
 }
 .activity.w2 {
   width: 45%;
