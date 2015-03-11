@@ -2,6 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var indexController = require('./controllers/index.js');
 var logActivityController = require('./controllers/logActivity.js');
+var activitiesController = require('./controllers/activities.js');
+var progressController = require('./controllers/progress.js');
 
 // Require mongoose
 var mongoose = require('mongoose');
@@ -19,6 +21,14 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', indexController.index);
+
+// Api-specific routes:
+app.get('/api/activities', activitiesController.getAll);
+app.get('/api/progress', progressController.getToday);
+// app.post('/api/activities', activitiesController.logActivity);
+
+// Templates route:
+app.get('/templates/:templateid', indexController.getTemplate);
 
 app.post('/logActivity/:user_id', logActivityController.logActivity);
 

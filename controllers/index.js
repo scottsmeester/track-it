@@ -35,7 +35,7 @@ var indexController = {
               
             // render the shit
             res.render('index',{
-              activities: activitiesFromDB,
+              // activities: activitiesFromDB,
               firstname: userInfo.firstname,
               lastname: userInfo.lastname,
               user_id: userInfo._id,
@@ -45,7 +45,10 @@ var indexController = {
           });
         });
     });
-	}
+	},
+  getTemplate: function(req, res){
+    res.render('templates/' + req.params.templateid);
+  }
 };
 
 module.exports = indexController;

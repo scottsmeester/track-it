@@ -16,7 +16,7 @@ var logActivityController = {
       // which is an array of objects of all of todays items for the user
       userInfo.pushLogItem(newLogItem, function(err, todaysItems){
         if (err) throw err;
-        // add up todays todal to send
+        // add up todays total to send
         var todaysTotal = 
           _.reduce(todaysItems.loggedItems, function(total, item){
             return total + item.points;

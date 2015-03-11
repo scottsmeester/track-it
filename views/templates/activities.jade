@@ -1,0 +1,8 @@
+div.activities
+  div.activity(ng-repeat="activity in activities")
+    div.activityBorder
+      div.activityPoints
+        p {{activity.points}}
+          span pts.
+      div.activityName {{activity.name}}
+      div.activityDesc {{activity.description}}

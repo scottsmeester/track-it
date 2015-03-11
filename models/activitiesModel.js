@@ -7,6 +7,6 @@ var activitySchema = mongoose.Schema({
   points: Number
 });
 
-var Activity = mongoose.model('Activity', activitySchema);
+var Activities = mongoose.model('Activities', activitySchema);
 
-module.exports = Activity;
+module.exports = Activities;
