@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 
 var activitySchema = mongoose.Schema({
-  name: String,
+  activity: String,
   description: String,
   points: Number
 });

@@ -1,7 +1,7 @@
 div.progress
-  div.progress-bar.progress-bar-striped.active(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: {{valueProgress}}%;") {{valueProgress}}% complete!
+  div.progress-bar.progress-bar-striped.active(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: {{today.valueProgress}}%;") {{today.valueProgress}}%
   div.goalProgress 
-    span#todaysPoints {{progress.todaysTotal}}
+    span#todaysPoints {{today.todaysTotal}}
     |  points today - your goal: 
-    span#goal {{progress.goal}} 
+    span#goal {{today.goal}} 
     |  points

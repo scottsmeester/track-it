@@ -1,8 +1,8 @@
 div.activities
-  div.activity(ng-repeat="activity in activities")
+  div.activity(ng-repeat="activity in activities" ng-click="logActivity()")
     div.activityBorder
       div.activityPoints
         p {{activity.points}}
           span pts.
-      div.activityName {{activity.name}}
+      div.activityName {{activity.activity}}
       div.activityDesc {{activity.description}}

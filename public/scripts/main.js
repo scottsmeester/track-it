@@ -17,40 +17,66 @@ salesTools.factory('Activities', function($resource){
   return {
     model: model,
     items: model.query(),
-    // update: function (id, update) { model.update(id, )}
   };
 });
 
-salesTools.controller('activitiesController', function($scope, Activities){
+salesTools.controller('activitiesController', function($scope, todayFactory, Activities){
   $scope.activities = Activities.items;
-  // Activites.update()
-});
+  $scope.item = {};
 
-salesTools.factory('progressFactory', function($http){
-  $http.get('/api/progress')
-    .success(function(data, status, headers, config) {
-      console.log(arguments);
+  $scope.logActivity = function(){
+    var newItem = new Activities.model(this.activity);
+    // console.log('newItem ',newItem);
+    newItem.$save(function(loggedActivity){
+      // Make sure to convert the JSON from the server
+      // into a useable resource instance,
+      // then push it into the model list
+      todayFactory.update();
     });
-    return {};
+  };
 });
 
-salesTools.controller('progressController', function($scope, progressFactory){
-  console.log(progressFactory);
-  $scope.progress = progressFactory.items;
+
+salesTools.factory('todayFactory', function($http){
+  var module = {};
+  module.today = null;
+  module.goal = 0;
+  module.todaysTotal = 0;
+  module.update = function(){
+    $http.get('/api/todaysStuff')
+      .success(function(data){
+        module.today = data;
+        module.goal = data.goal;
+        module.todaysTotal = data.loggedItems
+        .reduce(function(total, item){
+            return total + item.points;
+          },0);
+        module.valueProgress = Math.floor((module.todaysTotal/module.goal)*100);
+        // console.log(module);
+      });
+  };
+  module.update();
+  return module;
 });
 
-// News Item Directive:
-salesTools.directive('progress', function(){
+// goalProgres Directive:
+salesTools.directive('goalprogress', function(){
   return {
     restrict: 'E',
     templateUrl: '/templates/progressBar',
-    controller: function ($scope, $http) {
-      $http.get('/api/progress')
-        .success(function(data, status, headers, config) {
-          console.log(arguments);
-          $scope.progress = data;
-          $scope.valueProgress = Math.floor((data.todaysTotal/data.goal)*100);
-        });
+    controller: function ($scope, todayFactory, $http) {
+      $scope.today = todayFactory;
     }
   };
 });
+
+salesTools.directive('todaysstuff', function(){
+  return {
+    restrict: 'E',
+    templateUrl: '/templates/todaysStuff',
+    controller: function ($scope, todayFactory, $http) {
+      $scope.today = todayFactory;
+    }
+  };
+});
+
