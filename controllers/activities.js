@@ -7,9 +7,10 @@ var activitiesController = {
     });
   },
   logActivity: function(req, res){
+    console.log(req.params);
     User.findOne({firstname: 'Scott'}, function(err, results){
       results.pushLogItem(req.body, function(err, today){
-        console.log('results: ', today);
+        // console.log('results: ', today);
         res.send(today);
       });
     });

@@ -1,5 +1,5 @@
 
-var salesTools = angular.module('SalesTools', ['ngRoute','ngResource']);
+var salesTools = angular.module('SalesTools', ['ngRoute','ngResource', 'ui.bootstrap']);
 
 salesTools.config(function($routeProvider){
   $routeProvider
@@ -36,7 +36,6 @@ salesTools.controller('activitiesController', function($scope, todayFactory, Act
   };
 });
 
-
 salesTools.factory('todayFactory', function($http){
   var module = {};
   module.today = null;
@@ -46,8 +45,12 @@ salesTools.factory('todayFactory', function($http){
     $http.get('/api/todaysStuff')
       .success(function(data){
         module.today = data;
+        // console.log(module.today);
         module.goal = data.goal;
         module.todaysTotal = data.loggedItems
+        .filter(function(item){
+          return item.legit;
+        })
         .reduce(function(total, item){
             return total + item.points;
           },0);
@@ -76,6 +79,14 @@ salesTools.directive('todaysstuff', function(){
     templateUrl: '/templates/todaysStuff',
     controller: function ($scope, todayFactory, $http) {
       $scope.today = todayFactory;
+      $scope.isCollapsed = false;
+      $scope.updateActivity = function(){
+          // console.log('hello',this);
+        $http.put('/api/updateActivity/', {id: this.log._id})
+          .success(function(data){
+            todayFactory.update();
+          });
+      };
     }
   };
 });

@@ -34,7 +34,10 @@ userSchema.methods.getToday = function(cb){
   // .find takes in all of this users days in to search
   // it looks for a match of today
   var todayObj = _.find(this.day, function(day){
-    return day.date.toDateString() === today;
+    // console.log('day: ', day);
+    return day.date.toDateString() === today
+      // && day.loggedItems.legit === true
+      ;
   });
   // give the callback null for error, today's items
   // if there is already entries in the DB
@@ -48,7 +51,7 @@ userSchema.methods.getToday = function(cb){
     // save the function, pass result 
     this.save(function(err, result){
       var todayObj = _.find(result.day, function(day){
-        console.log(day.date.toDateString(), today);
+        // console.log(day.date.toDateString(), today);
         return day.date.toDateString() === today;
       });
       cb(null, todayObj);
@@ -68,6 +71,7 @@ userSchema.methods.pushLogItem = function(logItem, cb){
   // takes today object with loggedIbemss array of objects
   this.getToday(function(err, today){
     // push a new logItem object to loggedItems array
+    delete logItem._id;
     today.loggedItems.push(logItem);
     // use mongoose save methos, using callback with results
     user.save(function(err, results){

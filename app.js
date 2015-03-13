@@ -29,7 +29,7 @@ app.get('/api/activities', activitiesController.getAll);
 app.get('/api/progress', progressController.getToday);
 app.get('/api/todaysStuff', todaysStuffController.getTodaysStuff);
 app.post('/api/activities/:id', activitiesController.logActivity);
-// app.post('/api/activities', activitiesController.logActivity);
+app.put('/api/updateActivity', todaysStuffController.updateActivity);
 
 // Templates route:
 app.get('/templates/:templateid', indexController.getTemplate);

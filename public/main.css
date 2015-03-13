@@ -127,12 +127,14 @@ width: 100px;
  width: 30px; 
 }
 .theUser {
-/* float: right; */
 position: absolute;
 right: 20px;
-/*top: 15px;*/
-/*font-size: 1.2em;*/
-/*color: #6ba099;*/
+}
+#history {
+  padding-bottom: 15px;
+}
+.panel-group {
+  margin-bottom: 0;
 }
 
 /*  color palette  */
