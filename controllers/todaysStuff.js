@@ -16,11 +16,11 @@ var todaysStuffController = {
       results.getToday(function(err,today){
         // find with ID
         var itemToChange = _.find(today.loggedItems, function(item){
-          return item._id == req.body.id
+          return item._id == req.body.id;
         });
         itemToChange.legit = false;
-        console.log(today);
-        console.log(itemToChange);
+        // console.log(today);
+        // console.log(itemToChange);
         results.save(function(err, result){
           res.send(result);
         });

@@ -1,21 +1,16 @@
 TrackIt Todo's:
-  ☐ User designation and preferences functionality
-    ☐ All data needs to be drawn from DB based on individual user
-    ✔ Global variable set with ID of guest account @done (15-03-01 17:49)
-      ✔ Get the user's name printed on index page, and then you can but their data_id on the html element and pass it to logging activities @done (15-03-01 17:49)
-    ✔ Get today's goal on header bar @done (15-03-02 17:13)
-  ✔ Get activity log working @done (15-03-04 12:22)
-  ☐ Get todays points and percentage
-  ☐ Get progress bar working
-      ☐ Refactor logging to fill User array
-      ☐ Get/set current running total
-  ☐ CRUD for activities
-    ☐ Get HTML form
-    ☐ Enter form contents into/out of data
-  ☐ Get a version on Heroku
-
-  ☐ Get help from Chris for bug
+  ☐ User authentication
+  ☐ Account management
+  ☐ Integrate with salesforce
+  ☐ CRUD activities
   ☐ Get help squelching Git push message
+  ☐ get Ryan book about SPA's
+
+Reformatting page:
+  ☐ Format "Today's History"
+    ☐ arrow dropdown
+    ☐ make it not so "buttony"
+    ☐ shadows on buttons mouseover
 
 Nice to Have's:
   ☐ Get goal system working
@@ -24,6 +19,21 @@ Nice to Have's:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Refactor logging to fill User array @done (15-03-13 18:33) @project(TrackIt Todo's)
+ ✔ Get/set current running total @done (15-03-13 18:33) @project(TrackIt Todo's)
+ ✔ Get todays points and percentage @done (15-03-13 18:33) @project(TrackIt Todo's)
+ ✔ Get progress bar working @done (15-03-13 18:33) @project(TrackIt Todo's)
+ ✔ Get help from Chris for bug @done (15-03-13 18:33) @project(TrackIt Todo's)
+ ✔ Get a version on Heroku @done (15-03-13 18:33) @project(TrackIt Todo's)
+ ✔ Get HTML form @done (15-03-13 18:33) @project(TrackIt Todo's)
+ ✔ Enter form contents into/out of data @done (15-03-13 18:33) @project(TrackIt Todo's)
+ ✔ CRUD for activities @done (15-03-13 18:33) @project(TrackIt Todo's)
+ ✔ All data needs to be drawn from DB based on individual user @done (15-03-13 18:33) @project(TrackIt Todo's)
+ ✔ User designation and preferences functionality @done (15-03-13 18:32) @project(TrackIt Todo's)
+ ✔ Get activity log working @done (15-03-04 12:22) @project(TrackIt Todo's)
+ ✔ Get today's goal on header bar @done (15-03-02 17:13) @project(TrackIt Todo's)
+ ✔ Global variable set with ID of guest account @done (15-03-01 17:49) @project(TrackIt Todo's)
+ ✔ Get the user's name printed on index page, and then you can but their data_id on the html element and pass it to logging activities @done (15-03-01 17:49) @project(TrackIt Todo's)
  ✔ Get/set users goal @done (15-02-28 08:37) @project(TrackIt Todo's)
  ✔ Get controller to show default user info @done (15-02-28 08:37) @project(TrackIt Todo's)
  ✔ Log every click in database @done (15-02-28 08:35) @project(TrackIt Todo's)
