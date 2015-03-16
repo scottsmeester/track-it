@@ -91,3 +91,23 @@ salesTools.directive('todaysstuff', function(){
   };
 });
 
+// $(document).on('ready', function(){
+
+//   // $('.activity').mouseenter(function(){
+//   //   $scope.$apply(function(){
+//   //     console.log('hello');
+//   //   });
+//   // });
+
+//   $('.activities').on('mouseenter', '.activity', function(event) {
+//       console.log('hello');
+//      if (event.type == 'mouseenter') {
+//          // $(this ).find(".butt-view").show();
+
+//       console.log('hello1');
+//      } else  {
+//          // $(this ).find(".butt-view").hide();
+//       console.log('hello2');
+//      }
+//     });
+// });
