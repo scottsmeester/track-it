@@ -11,7 +11,7 @@ var userMgmtController = require('./controllers/userMgmt');
 var mongoose = require('mongoose');
 
 // Connect to a database
-mongoose.connect('mongodb://localhost/salesTools');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/salesTools');
 
 // Seed the database:
 require('./models/seedScripts/seedDB.js');
