@@ -1,3 +1,5 @@
 node_modules
 archived-versions
 models/seedScripts
+npm-debug.log
+.DS_Store
