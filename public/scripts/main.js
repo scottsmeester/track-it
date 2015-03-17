@@ -70,7 +70,6 @@ salesTools.controller('userMgmtController', function($http, $scope){
       console.log('this.user: ',this.item);
 
     };
-  // $scope.item = ChangeUser.model.get({_id: $routeParams.id});
 });
 
 salesTools.factory('todayFactory', function($http){
