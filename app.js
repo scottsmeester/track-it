@@ -92,6 +92,7 @@ app.get('/templates/:templateid', indexController.getTemplate);
 
 // app.post('/logActivity/:user_id', logActivityController.logActivity);
 
-var server = app.listen(6403, function() {
+var port = process.env.PORT || 6403;
+var server = app.listen(port, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
