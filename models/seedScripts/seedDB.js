@@ -26,7 +26,10 @@ User.find({}, function(err, documents){
           points: 1,
           legit: true
         }],
-      }]
+      }],
+        username: "scottsmeester",
+        email: "scott@smeester.com",
+        password: "$2a$10$JzzDrVLLpPIjXN5xNGUWIuls5Z.dG2/vJ8iH9qRrdJz3Zlgi8PetO"
     });
     smeester.save();
 
@@ -52,7 +55,10 @@ User.find({}, function(err, documents){
           points: 1,
           legit: true
         }],
-      }]
+      }],
+        username: "joezengo",
+        email: "joezengo@smeester.com",
+        password: "$2a$10$JzzDrVLLpPIjXN5xNGUWIuls5Z.dG2/vJ8iH9qRrdJz3Zlgi8PetO"
     });
     joe.save();
 
@@ -78,7 +84,10 @@ User.find({}, function(err, documents){
           points: 1,
           legit: true
         }],
-      }]
+      }],
+        username: "tedjohnson",
+        email: "tedjohnson@smeester.com",
+        password: "$2a$10$JzzDrVLLpPIjXN5xNGUWIuls5Z.dG2/vJ8iH9qRrdJz3Zlgi8PetO"
     });
     ted.save();
   }

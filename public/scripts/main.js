@@ -6,6 +6,10 @@ salesTools.config(function($routeProvider){
     .when('/', {
       templateUrl: '/templates/activities',
       controller: 'activitiesController'
+    })
+    .when('/changeUser/', {
+      templateUrl: '/templates/user-profile',
+      controller: 'userMgmtController'
     });
 });
 
@@ -20,13 +24,23 @@ salesTools.factory('Activities', function($resource){
   };
 });
 
+// salesTools.factory('GetUser', function($resource){
+//   var model = $resource(
+//     'api/getUser/:id',
+//     {id: '@_id'}
+//     );
+//   return {
+//     model: model,
+//     items: model.query(),
+//   };
+// });
+
 salesTools.controller('activitiesController', function($scope, todayFactory, Activities){
   $scope.activities = Activities.items;
   $scope.item = {};
 
   $scope.logActivity = function(){
     var newItem = new Activities.model(this.activity);
-    // console.log('newItem ',newItem);
     newItem.$save(function(loggedActivity){
       // Make sure to convert the JSON from the server
       // into a useable resource instance,
@@ -34,6 +48,29 @@ salesTools.controller('activitiesController', function($scope, todayFactory, Act
       todayFactory.update();
     });
   };
+});
+
+salesTools.controller('userMgmtController', function($http, $scope){
+  // $scope.user = GetUser.items;
+  // $scope.item = {};
+  $scope.item = {};
+  $scope.item.firstname = null;
+  $scope.item.lastname = null;
+  $scope.item.email = null;
+  $scope.item.defaultGoal = 25;
+  $http.get('/api/getUser/:id')
+    .success(function(data){
+      $scope.item.firstname = data.firstname;
+      $scope.item.lastname = data.lastname;
+      $scope.item.email = data.email;
+      $scope.item.defaultGoal = data.defaultGoal;
+    });
+    $scope.editUser = function(){
+      // $http.post('/api/updateUser/', )
+      console.log('this.user: ',this.item);
+
+    };
+  // $scope.item = ChangeUser.model.get({_id: $routeParams.id});
 });
 
 salesTools.factory('todayFactory', function($http){
@@ -54,8 +91,8 @@ salesTools.factory('todayFactory', function($http){
         .reduce(function(total, item){
             return total + item.points;
           },0);
+
         module.valueProgress = Math.floor((module.todaysTotal/module.goal)*100);
-        // console.log(module);
       });
   };
   module.update();
@@ -90,24 +127,3 @@ salesTools.directive('todaysstuff', function(){
     }
   };
 });
-
-// $(document).on('ready', function(){
-
-//   // $('.activity').mouseenter(function(){
-//   //   $scope.$apply(function(){
-//   //     console.log('hello');
-//   //   });
-//   // });
-
-//   $('.activities').on('mouseenter', '.activity', function(event) {
-//       console.log('hello');
-//      if (event.type == 'mouseenter') {
-//          // $(this ).find(".butt-view").show();
-
-//       console.log('hello1');
-//      } else  {
-//          // $(this ).find(".butt-view").hide();
-//       console.log('hello2');
-//      }
-//     });
-// });

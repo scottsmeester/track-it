@@ -9,21 +9,9 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 70px;
   width: 600px;
 }
-.navbar-inverse {
-background-color: #fff;
-border-color: #0e5148;
+ul.nav.navbar-nav {
+  float: right;
 }
-.navbar-inverse .navbar-nav>.active>a {
-color: #fff;
-background-color: #00352e;
-}
-.navbar-inverse .navbar-brand {
-color: #6ba099;
-}
-/*.infoHead {
-  background-color: beige;
-  padding: 15px;
-}*/
 .user h2, .user h3, .user h4  {
   display: inline-block;
   /*padding-left: 20px;*/
@@ -108,8 +96,8 @@ color: #6ba099;
 }
 .mouseOver {
   box-shadow: 8px 8px 8px #888888;
-  margin-top: 0px;
-  margin-left: 0px;
+  margin-top: 0;
+  margin-left: 0;
 }
 .progress {
   background-color: #fff7aa;

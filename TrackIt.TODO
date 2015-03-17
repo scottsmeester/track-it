@@ -1,16 +1,20 @@
 TrackIt Todo's:
-  ☐ User authentication
+  ✔ User authentication @done (15-03-16 16:15)
   ☐ Account management
+    ☐ Edit/update user
+    ☐ Update daily goal
+      ☐ Slider for user's daily goal
   ☐ Integrate with salesforce
   ☐ CRUD activities
   ☐ Get help squelching Git push message
-  ☐ get Ryan book about SPA's
+  ✔ get Ryan book about SPA's @done (15-03-16 16:15)
 
 Reformatting page:
   ☐ Format "Today's History"
     ☐ arrow dropdown
     ☐ make it not so "buttony"
     ☐ shadows on buttons mouseover
+  ☐ Slide/click to show logged activity
 
 Nice to Have's:
   ☐ Get goal system working

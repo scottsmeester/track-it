@@ -11,7 +11,7 @@ var indexController = {
     
     // User.findOne is implementing mongoose's findOne method
     // to get the user who matched up. a callback is sent userInfo
-    User.findOne({firstname: 'Scott'},function(err,userInfo){
+    User.findOne({_id: req.user._id},function(err,userInfo){
       if (err) throw err;
         
         // after userInfo is received, getToday is invoked
@@ -32,7 +32,6 @@ var indexController = {
               _.reduce(today.loggedItems, function(total, item){
                 return total + item.points;
               },0);
-              
             // render the shit
             res.render('index',{
               // activities: activitiesFromDB,

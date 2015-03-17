@@ -1,0 +1,13 @@
+h1 Update Profile
+div
+  form.form(ng-submit="editUser()")
+    .form-group
+      input.form-control(type="text", placeholder="First name...", ng-model="item.firstname")
+    .form-group
+      input.form-control(type="text", placeholder="Last name...", ng-model="item.lastname")
+    .form-group
+      input.form-control(type="text", placeholder="Email...", ng-model="item.email")
+    .form-group
+      input.form-control(type="text", placeholder="Default daily goal...", ng-model="item.defaultGoal")
+    .form-group
+      input.btn.btn-primary(type="submit", value="Save...")

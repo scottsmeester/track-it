@@ -11,9 +11,13 @@ html(lang='en' ng-app="SalesTools")
 		nav.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-header
 				button.navbar-toggle.collapsed(type="button", data-toggle="collapse",data-target="#navbar", aria-expanded="false", aria-controls="navbar")
-				a.navbar-brand(href='#') If you Track-It, you'll do it.
-				div.theUser
-					a.navbar-brand Hello, #{firstname} #{lastname}!
+				a.navbar-brand(href='#/') If you Track-It, you'll do it.
+			#navbar.navbar-collapse.collapse
+				ul.nav.navbar-nav
+					li
+						a(ng-href='#/changeUser/') Update Profile
+				//- div.theUser
+				//- 	a.navbar-brand Hello, #{firstname}!
 		
 		goalprogress
 

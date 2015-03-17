@@ -3,7 +3,7 @@ var _ = require('underscore');
 
 var todaysStuffController = {
   getTodaysStuff: function(req, res){
-    User.findOne({firstname: 'Scott'}, function(err, results){
+    User.findOne({_id: req.user._id}, function(err, results){
       results.getToday(function(err,today){
         // var todaysDate = (new Date()).toDateString();
         // .find takes in all of this users days in to search
@@ -12,7 +12,7 @@ var todaysStuffController = {
     });
   },
   updateActivity: function(req, res){
-    User.findOne({firstname: 'Scott'}, function(err, results){
+    User.findOne({_id: req.user._id}, function(err, results){
       results.getToday(function(err,today){
         // find with ID
         var itemToChange = _.find(today.loggedItems, function(item){
