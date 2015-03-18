@@ -1,6 +1,7 @@
 body { 
   padding-top: 51px; 
   /*margin: 15px;*/
+  padding-bottom: 100px;
 }
 h1, h2, h3, h4, h5, h6 {
   color: #00352e;
@@ -8,9 +9,18 @@ h1, h2, h3, h4, h5, h6 {
 .container.ng-scope {
   margin-top: 70px;
   width: 600px;
+  padding-bottom: 100px;
 }
 ul.nav.navbar-nav {
   float: right;
+}
+.navbar-inverse {
+  background-color: #e5e5e5;
+  border-color: #777;
+}
+.navbar-inverse .navbar-brand {
+  font-weight: bold;
+  font-size: 1.7em;
 }
 .user h2, .user h3, .user h4  {
   display: inline-block;
@@ -24,7 +34,7 @@ ul.nav.navbar-nav {
   margin-left: 10px;
 }
 .activity {
-  color: #585858;
+  color: #333;
   /*border-radius: 11px;*/
   overflow: hidden;
   cursor: pointer;
@@ -77,8 +87,8 @@ ul.nav.navbar-nav {
 }
 .activityPoints p {
   position: absolute;
-  right: 31px;
-  top: 24px;
+  right: 27px;
+  top: 17px;
   font-size: 1.5em;
   font-weight: bold;
 }
@@ -88,6 +98,7 @@ ul.nav.navbar-nav {
 .goalProgress {
   position: relative;
   left: 15px;
+  color: #777;
 }
 .mouseClick {
   box-shadow: 2px 2px 2px #888888;
@@ -100,7 +111,7 @@ ul.nav.navbar-nav {
   margin-left: 0;
 }
 .progress {
-  background-color: #fff7aa;
+  background-color: #e5e5e5;
   margin-bottom: 0;
   position: fixed;
   width: 100%;
@@ -110,7 +121,8 @@ ul.nav.navbar-nav {
  margin-bottom: 0; 
 }
 .progress-bar {
-  background-color: #00352e;
+  background-color: #ffd52e;
+  color: #777;
 }
 .logItem {
   display: inline-block;
@@ -143,6 +155,15 @@ right: 20px;
 }
 .panel-group {
   margin-bottom: 0;
+}
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #777;
+  display: inline-block;
+  margin-left: 10px;
 }
 
 /*  color palette  */

@@ -1,5 +1,5 @@
 div.activities
-  div.activity(ng-repeat="activity in activities" ng-click="logActivity()")
+  div.activity(md-ink-ripple ng-repeat="activity in activities" ng-click="logActivity()")
     div.activityBorder
       div.activityPoints
         p {{activity.points}}

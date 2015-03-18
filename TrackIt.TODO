@@ -1,7 +1,8 @@
 TrackIt Todo's:
   ✔ User authentication @done (15-03-16 16:15)
   ☐ Account management
-    ☐ Edit/update user
+    ✔ Edit/update user @done (15-03-18 10:04)
+    ☐ Redirect back to home page with message
     ☐ Update daily goal
       ☐ Slider for user's daily goal
   ☐ Integrate with salesforce

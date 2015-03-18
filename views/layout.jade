@@ -2,22 +2,21 @@ doctype html
 html(lang='en' ng-app="SalesTools")
 	head
 		meta(charset="utf-8")
-		title Track-It Sheet
+		title Track-It
 		meta(name="description" content="If you Track-It, you'll do it.")
 		link(rel="stylesheet", type="text/css", href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css")
+		link(rel="stylesheet", type="text/css", href="//cdnjs.cloudflare.com/ajax/libs/angular-material/0.8.3/angular-material.css")
 		link(rel="stylesheet", type="text/css", href="/minified/output.css")
 
 	body
 		nav.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-header
 				button.navbar-toggle.collapsed(type="button", data-toggle="collapse",data-target="#navbar", aria-expanded="false", aria-controls="navbar")
-				a.navbar-brand(href='#/') If you Track-It, you'll do it.
+				a.navbar-brand(href='#/') Track-It
 			#navbar.navbar-collapse.collapse
 				ul.nav.navbar-nav
 					li
 						a(ng-href='#/changeUser/') Update Profile
-				//- div.theUser
-				//- 	a.navbar-brand Hello, #{firstname}!
 		
 		goalprogress
 
@@ -27,8 +26,15 @@ html(lang='en' ng-app="SalesTools")
 		
 	block foot-scripts
 		
-	script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.js")
+	script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js")
+
+	script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-animate.min.js")
+	script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-aria.min.js")
+
 	script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-resource.js")
 	script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.js")
 	script(src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js")
+
+	script(src="//cdnjs.cloudflare.com/ajax/libs/angular-material/0.8.3/angular-material.min.js")
+
 	script(src="/scripts/main.js")

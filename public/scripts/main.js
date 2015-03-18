@@ -1,5 +1,5 @@
 
-var salesTools = angular.module('SalesTools', ['ngRoute','ngResource', 'ui.bootstrap']);
+var salesTools = angular.module('SalesTools', ['ngRoute','ngResource', 'ui.bootstrap','ngMaterial']);
 
 salesTools.config(function($routeProvider){
   $routeProvider
