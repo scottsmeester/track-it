@@ -29,7 +29,7 @@ User.find({}, function(err, documents){
       }],
         username: "scottsmeester",
         email: "scott@smeester.com",
-        password: "$2a$10$JzzDrVLLpPIjXN5xNGUWIuls5Z.dG2/vJ8iH9qRrdJz3Zlgi8PetO"
+        password: "Ref@ctorU"
     });
     smeester.save();
 
@@ -58,7 +58,7 @@ User.find({}, function(err, documents){
       }],
         username: "joezengo",
         email: "joezengo@smeester.com",
-        password: "$2a$10$JzzDrVLLpPIjXN5xNGUWIuls5Z.dG2/vJ8iH9qRrdJz3Zlgi8PetO"
+        password: "Ref@ctorU"
     });
     joe.save();
 

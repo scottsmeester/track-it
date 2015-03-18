@@ -84,8 +84,8 @@ app.get('/api/progress', progressController.getToday);
 app.get('/api/todaysStuff', todaysStuffController.getTodaysStuff);
 app.post('/api/activities/:id', activitiesController.logActivity);
 app.put('/api/updateActivity', todaysStuffController.updateActivity);
-app.get('/api/getUser/:id', userMgmtController.edit);
-app.get('/api/updateUser/:id', userMgmtController.update);
+app.get('/api/getUser/', userMgmtController.edit);
+app.post('/api/updateUser/', userMgmtController.update);
 
 // Templates route:
 app.get('/templates/:templateid', indexController.getTemplate);

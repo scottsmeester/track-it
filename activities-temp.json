@@ -1,3 +1,6 @@
+// REMOVE THIS BEFORE USING
+// mongoimport -h ds063449.mongolab.com:63449 -d heroku_app34985604 -c activities -u heroku_app34985604 -pe4jvt3bdsuhulsbet6fsadfnpo --file "/Users/scottsmeester/Documents/Website Dev Stuff/TrackIt/activities-temp.json" --type json --jsonArray
+
 [
   {
     "activity": "Goals Review",
@@ -46,12 +49,12 @@
   },
   {
     "activity": "Newsletter Article",
-    "description": "",
+    "description": "Write an information newsletter - a great way to serve your current clients and customers.",
     "points": 6
   },
   {
     "activity": "E-mail",
-    "description": "",
+    "description": "Write a personal email - still a great way to stay top of mind.",
     "points": 1
   },
   {

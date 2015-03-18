@@ -58,7 +58,7 @@ salesTools.controller('userMgmtController', function($http, $scope){
   $scope.item.lastname = null;
   $scope.item.email = null;
   $scope.item.defaultGoal = 25;
-  $http.get('/api/getUser/:id')
+  $http.get('/api/getUser/')
     .success(function(data){
       $scope.item.firstname = data.firstname;
       $scope.item.lastname = data.lastname;
@@ -67,8 +67,11 @@ salesTools.controller('userMgmtController', function($http, $scope){
     });
     $scope.editUser = function(){
       // $http.post('/api/updateUser/', )
-      console.log('this.user: ',this.item);
-
+      console.log($scope);
+      $http.post('/api/updateUser/', this.item)
+      .success(function(){
+        console.log('Success!');
+      });
     };
 });
 
