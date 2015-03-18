@@ -1,42 +1,52 @@
 
 doctype html
 html(lang='en')
-  head
-    meta(charset="utf-8")
-    title Track-It
-    meta(name="description" content="If you Track-It, you'll do it.")
-    link(rel="stylesheet", type="text/css", href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css")
-    link(rel="stylesheet", type="text/css", href="/minified/output.css")
+	head
+		meta(charset="utf-8")
+		title Track-It
+		meta(name="description" content="If you Track-It, you'll do it.")
+		link(rel="stylesheet", type="text/css", href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css")
+		link(rel="stylesheet", type="text/css", href="/minified/output.css")
 
-  body
-    nav.navbar.navbar-inverse.navbar-fixed-top
-      div.navbar-header
-        button.navbar-toggle.collapsed(type="button", data-toggle="collapse",data-target="#navbar", aria-expanded="false", aria-controls="navbar")
-        a.navbar-brand(href='#') Track-It
-        //- div.theUser
-        //-   a.navbar-brand Hello!
+	body
+		nav.navbar.navbar-inverse.navbar-fixed-top
+			div.navbar-header
+				button.navbar-toggle.collapsed(type="button", data-toggle="collapse",data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+				a.navbar-brand(href='#') Track-It
+		
+		div.container
+			if error
+				h3= error
 
-    //- Error comes through via the context passed when calling res.render('login', {...})
-    //- You'll see this in controllers/authentication.js
-    //- If the error exists, we'll display it.
-    
-    div.container
-      if error
-        h3= error
-
-      //- Form for handling existing user logins.
-      h1 Existing Users
-      form(action="/auth/login", method="post")
-        input(type="text", name="username", placeholder="Username")
-        input(type="password", name="password", placeholder="Password")
-        input(type="submit")
-
-      //- Form for allowing new users to register.
-      h1 Register
-      form(action="/auth/signup", method="post")
-        input(type="text", name="username", placeholder="Username")
-        input(type="email", name="email", placeholder="Email")
-        input(type="password", name="password", placeholder="Password")
-        input(type="submit")
-    
-  block foot-scripts
+			.panel.panel-default
+				.panel-heading
+						h3.panel-title Existing Users Login
+					.panel-body
+						form(action="/auth/login", method="post")
+							div.form-group
+								label Username
+								input.form-control(type="text", name="username", placeholder="Username")
+							div.form-group
+								label Password
+								input.form-control(type="password", name="password", placeholder="Password")
+							div.form-group
+								input.btn.btn-default(type="submit")
+									
+			.panel.panel-default
+				.panel-heading
+						h3.panel-title New Users Register
+					.panel-body
+						form(action="/auth/signup", method="post")
+							div.form-group
+								label Username
+								input.form-control(type="text", name="username", placeholder="Username")
+							div.form-group
+								label Email
+								input.form-control(type="email", name="email", placeholder="Email")
+							div.form-group
+								label Password
+								input.form-control(type="password", name="password", placeholder="Password")
+							div.form-group
+								input.btn.btn-default(type="submit")
+		
+	block foot-scripts
