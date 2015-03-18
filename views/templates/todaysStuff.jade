@@ -1,11 +1,11 @@
 div#history
-  div.btn.btn-default.btn-block(ng-click="isCollapsed = !isCollapsed") Today's History
-    div.arrow-down
-  div.panel-group(collapse='!isCollapsed')
-    div.panel.panel-default
-      div.panel-heading
-        ul.list-group
-          li.list-group-item(ng-repeat="log in today.today.loggedItems | filter: {legit: true}")
-            .logItem.logActivity {{log.activity}} {{log.timestamp | date}}
-            //- a.logRemove(href='#')
-            span.glyphicon.glyphicon-remove(ng-click="updateActivity()")
+	div.btn.btn-default.btn-block(ng-click="isCollapsed = !isCollapsed") Today's History
+		div.arrow-down
+	div.panel-group(collapse='!isCollapsed')
+		div.panel.panel-default
+			div.panel-heading
+				ul.list-group
+					li.list-group-item(ng-repeat="log in today.today.loggedItems | filter: {legit: true}")
+						.logItem.logActivity {{log.activity}}
+						.logItem.logActivity {{log.timestamp | date:"MM/dd/yyyy 'at' h:mma"}}
+						span.glyphicon.glyphicon-remove(ng-click="updateActivity()")

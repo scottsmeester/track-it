@@ -66,11 +66,9 @@ salesTools.controller('userMgmtController', function($http, $scope){
       $scope.item.defaultGoal = data.defaultGoal;
     });
     $scope.editUser = function(){
-      // $http.post('/api/updateUser/', )
-      console.log($scope);
       $http.post('/api/updateUser/', this.item)
       .success(function(){
-        console.log('Success!');
+        window.location.href = "/";
       });
     };
 });
