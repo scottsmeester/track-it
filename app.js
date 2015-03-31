@@ -74,6 +74,17 @@ app.post('/auth/signup', authenticationController.processSignup);
 // Any requests to log out can be handled at this url
 app.get('/auth/logout', authenticationController.logout);
 
+// salesforce login routes
+app.get('/auth/salesforce',
+  passport.authenticate('forcedotcom'),
+  function(req, res){
+});
+app.get('/auth/salesforce/callback',
+  passport.authenticate('forcedotcom', { failureRedirect: '/oops' }),
+  function(req, res) {
+   res.redirect('/');
+});
+
 // ***** IMPORTANT ***** //
 // By including this middleware (defined in our config/passport.js module.exports), We can prevent unauthorized access to any route handler defined after this call to .use()
 app.use(passportConfig.ensureAuthenticated);

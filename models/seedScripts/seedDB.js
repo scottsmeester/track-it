@@ -28,7 +28,7 @@ User.find({}, function(err, documents){
         }],
       }],
         username: "scottsmeester",
-        email: "scott@smeester.com",
+        email: "scotty@smeester.com",
         password: "Ref@ctorU"
     });
     smeester.save();

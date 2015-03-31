@@ -10,31 +10,49 @@ var bcrypt = require('bcrypt');
  * @type {[object]}
  */
 var userSchema = mongoose.Schema({
-  firstname: {type: String, default: 'Guest'},
-  lastname: {type: String},
+  oauthID: String, // this is from an api like salesforce
+  firstname: {
+    type: String,
+    default: 'Guest'
+  },
+  lastname: {
+    type: String
+  },
   day: [{
-    date: {type: Date, default: Date.now},
-    goal: {type: Number, default: 25},
+    date: {
+      type: Date,
+      default: Date.now
+    },
+    goal: {
+      type: Number,
+      default: 25
+    },
     loggedItems: [{
-      timestamp: {type: Date, default: Date.now},
+      timestamp: {
+        type: Date,
+        default: Date.now
+      },
       activity: String,
       points: Number,
-      legit: {type: Boolean, default: true}
+      legit: {
+        type: Boolean,
+        default: true
+      }
     }]
   }],
   username: {
     type: String,
-    required: true,
+    // required: true,
     unique: true
   },
   email: {
     type: String,
-    required: true,
+    // required: true,
     unique: true
   },
   password: {
     type: String,
-    required: true
+    // required: true
   }
 });
 

@@ -1,11 +1,13 @@
 // First, we'll need passport...
 var passport = require('passport');
+var config = require('../oauth.js');
 
 // We also need the strategy defined by our 'passport-local' module.
 // Strategies are how passport abstracts the logic of working with
 // different login systems like Facebook or Twitter. You can also
 // use multiple strategies to support more auth types.
 var LocalStrategy = require('passport-local').Strategy;
+var ForceDotComStrategy = require('passport-forcedotcom').Strategy;
 
 // Since we will be using the user model to control access and
 // persistence, we'll use that as well.
@@ -58,6 +60,7 @@ var localStrategy = new LocalStrategy(function(username, password, done){
       // isMatch is true if the passwords match, and false if they don't
       if(isMatch){
         // Success! Tell passport we made it.
+        // console.log(user);
         return done(err, user);
       } else {
         // Password was not correct. Tell passport the login failed.
@@ -67,9 +70,49 @@ var localStrategy = new LocalStrategy(function(username, password, done){
   });
 });
 
+var forceDotComStrategy = new ForceDotComStrategy(
+  {
+    clientID: config.salesforce.consumerKey,
+    clientSecret: config.salesforce.consumerSecret,
+    // scope: ['id'],
+    callbackURL: config.salesforce.callbackURL
+  },
+  function verify(token, refreshToken, profile, done) {
+
+    User.findOne({oauthID: profile._raw.user_id}, function(err, user) {
+      if (err) {
+        console.log(err);
+      }
+      if (!err && user !== null) {
+
+        // console.log(user);
+        done(null, user);
+      } 
+      else {
+        var newUser = new User({
+          oauthID: profile._raw.user_id,
+          firstname: profile._raw.first_name,
+          lastname: profile._raw.last_name,
+          email: profile._raw.email,
+        });
+        newUser.save(function(err) {
+          if (err) {
+            // console.log("error: ", err);
+          } 
+          else {
+            // console.log("saving user ...");
+            done(null, newUser);
+          }
+        });
+      }
+    });
+  }
+);
+
 // Passport needs to know about our strategy definition above, so
 // we hook that in here.
 passport.use(localStrategy);
+passport.use(forceDotComStrategy);
 
 
 // We don't really need to export anything from this file, since just
