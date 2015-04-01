@@ -1,7 +1,7 @@
 {
   "name": "TrackIt",
   "version": "1.0.0",
-  "description": "If you Track-It, you'll do it.",
+  "description": "If you Track-It, you\nll do it.",
   "main": "app.js",
   "dependencies": {
     "bcrypt": "^0.8.1",
