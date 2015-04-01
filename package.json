@@ -1,7 +1,7 @@
 {
   "name": "TrackIt",
   "version": "1.0.0",
-  "description": "If you Track-It, you\nll do it.",
+  "description": "",
   "main": "app.js",
   "dependencies": {
     "bcrypt": "^0.8.1",
@@ -21,7 +21,7 @@
     "mongo": "^0.1.0",
     "mongoose": "^3.8.24",
     "passport": "^0.2.1",
-    // "passport-facebook": "^2.0.0",
+    "passport-facebook": "^2.0.0",
     "passport-forcedotcom": "^0.1.1",
     "passport-local": "^1.0.0",
     "underscore": "^1.8.2"
