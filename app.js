@@ -6,7 +6,7 @@ var progressController = require('./controllers/progress.js');
 var todaysStuffController = require('./controllers/todaysStuff.js');
 var authenticationController = require('./controllers/authentication');
 var userMgmtController = require('./controllers/userMgmt');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 
 // Require mongoose
 var mongoose = require('mongoose');
