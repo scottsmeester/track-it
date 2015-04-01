@@ -6,7 +6,7 @@ var progressController = require('./controllers/progress.js');
 var todaysStuffController = require('./controllers/todaysStuff.js');
 var authenticationController = require('./controllers/authentication');
 var userMgmtController = require('./controllers/userMgmt');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 
 // Require mongoose
 var mongoose = require('mongoose');
@@ -43,7 +43,7 @@ app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
+// app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 // Add in the cookieParser and flash middleware so we can use them later
 app.use(cookieParser());
