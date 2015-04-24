@@ -40,6 +40,11 @@ var userSchema = mongoose.Schema({
       }
     }]
   }],
+  activities: [{
+    activity: String,
+    points: Number,
+    description: String
+  }],
   username: {
     type: String,
     // required: true,
@@ -136,7 +141,6 @@ userSchema.methods.getToday = function(cb){
     cb(null, todayObj);
   }
   else {
-    // TODO - not working
     // create a empty object in day's array of objects
     this.day.push({});
     // save the function, pass result 
@@ -171,6 +175,23 @@ userSchema.methods.pushLogItem = function(logItem, cb){
     });
   });
 };
+
+/**
+ * when a user doesn't have any activities, this gives him default ones
+ * @param  {array}   activities is a an array of all the activities
+ * @param  {Function} cb         supplies all of the activities
+ * @return {object}              [description]
+ */
+// userSchema.methods.fillUsersActivities = function(activities, cb){
+//   var user = this;
+//   console.log('activities:',activities);
+//   user.activities.push(activities);
+//   user.save(function(err, results){
+//     console.log(results);
+//       // when it's saved, getToday is invoked with the callback cb
+//       // results.getToday(cb);
+//     });
+// };
 
 var User = mongoose.model('User', userSchema);
 

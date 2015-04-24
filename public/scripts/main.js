@@ -10,6 +10,10 @@ salesTools.config(function($routeProvider){
     .when('/changeUser/', {
       templateUrl: '/templates/user-profile',
       controller: 'userMgmtController'
+    })
+    .when('/customizeActivities/', {
+      templateUrl: '/templates/customizeActivities',
+      controller: 'activitiesController'
     });
 });
 
@@ -23,17 +27,6 @@ salesTools.factory('Activities', function($resource){
     items: model.query(),
   };
 });
-
-// salesTools.factory('GetUser', function($resource){
-//   var model = $resource(
-//     'api/getUser/:id',
-//     {id: '@_id'}
-//     );
-//   return {
-//     model: model,
-//     items: model.query(),
-//   };
-// });
 
 salesTools.controller('activitiesController', function($scope, todayFactory, Activities){
   $scope.activities = Activities.items;

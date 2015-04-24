@@ -1,14 +1,12 @@
 TrackIt Todo's:
-  ✔ User authentication @done (15-03-16 16:15)
+ ☐ CRUD for activities
   ☐ Account management
-    ✔ Edit/update user @done (15-03-18 10:04)
     ☐ Redirect back to home page with message
     ☐ Update daily goal
       ☐ Slider for user's daily goal
   ☐ Integrate with salesforce
   ☐ CRUD activities
   ☐ Get help squelching Git push message
-  ✔ get Ryan book about SPA's @done (15-03-16 16:15)
 
 Reformatting page:
   ☐ Format "Today's History"
@@ -24,6 +22,10 @@ Nice to Have's:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Get db seeded @done (15-04-20 14:37) @project(TrackIt Todo's)
+ ✔ User authentication @done (15-03-16 16:15) @project(TrackIt Todo's)
+ ✔ Edit/update user @done (15-03-18 10:04) @project(TrackIt Todo's)
+ ✔ get Ryan book about SPA's @done (15-03-16 16:15) @project(TrackIt Todo's)
  ✔ Refactor logging to fill User array @done (15-03-13 18:33) @project(TrackIt Todo's)
  ✔ Get/set current running total @done (15-03-13 18:33) @project(TrackIt Todo's)
  ✔ Get todays points and percentage @done (15-03-13 18:33) @project(TrackIt Todo's)

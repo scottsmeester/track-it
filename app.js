@@ -49,7 +49,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(flash());
 
-// Initialize the express session. Needs to be given a secret property. Also requires the resave option (will not force a resave of session if not modified) as well as saveUninitialized(will not automatically create empty data)
+// Initialize the express session. Needs to be given a secret property. 
+// Also requires the resave option (will not force a resave of session 
+// if not modified) as well as saveUninitialized(will not automatically 
+// create empty data)
 app.use(session({
   secret: 'secret',
   resave: false,
@@ -86,13 +89,15 @@ app.get('/auth/salesforce/callback',
 });
 
 // ***** IMPORTANT ***** //
-// By including this middleware (defined in our config/passport.js module.exports), We can prevent unauthorized access to any route handler defined after this call to .use()
+// By including this middleware (defined in our config/passport.js 
+// module.exports), We can prevent unauthorized access to any route 
+// handler defined after this call to .use()
 app.use(passportConfig.ensureAuthenticated);
 
 app.get('/', indexController.index);
 
 // Api-specific routes:
-app.get('/api/activities', activitiesController.getAll);
+app.get('/api/activities', activitiesController.getUsersActivities);
 app.get('/api/progress', progressController.getToday);
 app.get('/api/todaysStuff', todaysStuffController.getTodaysStuff);
 app.post('/api/activities/:id', activitiesController.logActivity);

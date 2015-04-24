@@ -175,9 +175,9 @@ right: 20px;
   left: -18px;
   position: relative;
 }
-.panel.panel-default {
+/*.panel.panel-default {
   width: 300px;
-}
+}*/
 a.indescrete {
   color: #f5f5f5;
 }
@@ -189,4 +189,7 @@ a.sf-login-input {
   position: relative;
   left: 24px;
   top: 14.5px;
+}
+input.form-control.form-control.bfh-number {
+  width: 43px;
 }
