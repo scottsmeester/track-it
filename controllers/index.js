@@ -13,6 +13,16 @@ var indexController = {
     // to get the user who matched up. a callback is sent userInfo
     User.findOne({_id: req.user._id},function(err,userInfo){
       if (err) throw err;
+
+      // find the users activities to see if there are any
+      // if none, it will fill the seed the DB.
+      // if(userInfo.activities.length === 0){
+      //   res.redirect('/customizeActivities')
+      //   // userInfo.fillActivities(function(err, usersActivities){
+      //   //   // console.log('usersActivities',usersActivities);
+      //   // });
+      //   // // console.log('userInfo.activities',userInfo.activities);
+      // }
         
         // after userInfo is received, getToday is invoked
         // call back is "today" which will contain today's info

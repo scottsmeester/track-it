@@ -94,15 +94,21 @@ app.get('/auth/salesforce/callback',
 // handler defined after this call to .use()
 app.use(passportConfig.ensureAuthenticated);
 
+// find the users activities to see if there are any
+// if none, it will fill the seed the DB.
+// app.get('/', userMgmtController.checkActivities);
+
 app.get('/', indexController.index);
 
 // Api-specific routes:
-app.get('/api/activities', activitiesController.getUsersActivities);
+app.get('/api/activities', activitiesController.getAll);
+// app.get('/api/getActivity/', activitiesController.getActivity);
+app.post('/api/saveActivityChanges', activitiesController.saveActivityChanges);
 app.get('/api/progress', progressController.getToday);
 app.get('/api/todaysStuff', todaysStuffController.getTodaysStuff);
 app.post('/api/activities/:id', activitiesController.logActivity);
 app.put('/api/updateActivity', todaysStuffController.updateActivity);
-app.get('/api/getUser/', userMgmtController.edit);
+app.get('/api/getUser/', userMgmtController.getUser);
 app.post('/api/updateUser/', userMgmtController.update);
 
 // Templates route:

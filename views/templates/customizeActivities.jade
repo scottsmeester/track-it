@@ -3,7 +3,7 @@
 
 accordion
 	accordion-group(heading='{{activity.activity}}', ng-repeat='activity in activities')
-		form.form(ng-submit="editActivity()")
+		form.form(ng-submit="saveActivityChanges()")
 			.form-group
 				input.form-control(type="text", placeholder="Activity name...", ng-model="activity.activity")
 			.form-group
@@ -15,4 +15,5 @@ accordion
 			.form-group
 				textarea.form-control(placeholder="Activity description...", ng-model="activity.description", rows="2")
 			.form-group
-				input.btn.btn-primary(type="submit", value="Save...")
+				input.btn.btn-primary(type="submit", value="Save...", ng-show="!success")
+				.alert.alert-success(role='alert', ng-show="success") Success! Your activity has been changed...

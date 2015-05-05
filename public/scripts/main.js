@@ -1,5 +1,9 @@
 
-var salesTools = angular.module('SalesTools', ['ngRoute','ngResource', 'ui.bootstrap','ngMaterial']);
+var salesTools = angular.module('SalesTools', [
+  'ngRoute',
+  'ngResource', 
+  'ui.bootstrap',
+  'ngMaterial']);
 
 salesTools.config(function($routeProvider){
   $routeProvider
@@ -28,9 +32,11 @@ salesTools.factory('Activities', function($resource){
   };
 });
 
-salesTools.controller('activitiesController', function($scope, todayFactory, Activities){
+salesTools.controller('activitiesController', function($http, $scope, todayFactory, Activities){
   $scope.activities = Activities.items;
-  $scope.item = {};
+  $scope.success = false;
+
+  // $scope.item = {};
 
   $scope.logActivity = function(){
     var newItem = new Activities.model(this.activity);
@@ -41,6 +47,16 @@ salesTools.controller('activitiesController', function($scope, todayFactory, Act
       todayFactory.update();
     });
   };
+
+  $scope.saveActivityChanges = function(){
+    $scope.activity = {};
+    $scope.activity = this.activity;
+    $http.post('/api/saveActivityChanges/', $scope.activity)
+      .success(function(data){
+        this.success = !$scope.success;
+        console.log('type of success:',this.success);
+      });
+    }
 });
 
 salesTools.controller('userMgmtController', function($http, $scope){

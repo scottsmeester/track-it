@@ -182,15 +182,31 @@ userSchema.methods.pushLogItem = function(logItem, cb){
  * @param  {Function} cb         supplies all of the activities
  * @return {object}              [description]
  */
-// userSchema.methods.fillUsersActivities = function(activities, cb){
+// userSchema.methods.fillActivities = function(cb){
+//   // var user = this;
+//   // console.log('activities:',activities);
+//   // user.activities.push(activities);
+//   // user.save(function(err, results){
+//   //   console.log(results);
+//   //     // when it's saved, getToday is invoked with the callback cb
+//   //     // results.getToday(cb);
+//   //   });
 //   var user = this;
-//   console.log('activities:',activities);
-//   user.activities.push(activities);
-//   user.save(function(err, results){
-//     console.log(results);
-//       // when it's saved, getToday is invoked with the callback cb
-//       // results.getToday(cb);
-//     });
+//   var Activity = require('./activitiesModel.js');
+//   // require('./seedScripts/seedActivities.js');
+//   Activity.find({}, function(err, activities){
+    
+//     for(var i = 0; i < activities.length; i++){
+//       console.log(activities[i]);
+//       user.save(activities[i]);
+//     }
+//     // console.log(user.activities);
+//   });
+
+//   // if (user.activities.length < 1) {
+//   //   user.seedActivities
+//   //   console.log('user.activities',user.activities);
+//   // }
 // };
 
 var User = mongoose.model('User', userSchema);
