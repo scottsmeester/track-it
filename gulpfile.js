@@ -24,10 +24,16 @@ gulp.task('default', ['scripts','css'], function(){
 gulp.task('scripts', function(){
   return gulp.src(paths.scripts.src)
     .pipe(concat('output.js'))
-    .pipe(uglify())
+    .pipe(uglify({mangle: false}))
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(rename({ suffix: '.min' }))
     .pipe(notify({message: 'Scripts minification complete!'}));
+
+  // any errors in the above streams will get caught
+  // by this listener, instead of being thrown:
+  combined.on('error', console.error.bind(console));
+
+  return combined;
 });
 
 gulp.task('css', function(){
@@ -38,4 +44,3 @@ gulp.task('css', function(){
     .pipe(rename({ suffix: '.min' }))
     .pipe(notify({message: 'Styles minification complete!'}));
 });
-
