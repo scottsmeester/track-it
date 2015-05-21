@@ -171,6 +171,15 @@ right: 20px;
   display: inline-block;
   margin-left: 10px;
 }
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #777;
+  display: inline-block;
+  margin-left: 10px;
+}
 .progress-bar.active.ng-binding {
   left: -18px;
   position: relative;

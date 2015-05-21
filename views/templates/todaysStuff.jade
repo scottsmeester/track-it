@@ -1,6 +1,7 @@
 div#history
 	div.btn.btn-default.btn-block(ng-click="isCollapsed = !isCollapsed") Today's History
-		div.arrow-down
+		div.arrow-down(ng-show="!isCollapsed")
+		div.arrow-up(ng-show="isCollapsed")
 	div.panel-group(collapse='!isCollapsed')
 		div.panel.panel-default
 			div.panel-heading
