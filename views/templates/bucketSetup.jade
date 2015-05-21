@@ -1,1 +1,6 @@
-h1 Choose your bucket:
+h1 Choose your bucket...
+
+data-buckets(ng-repeat="bucket in buckets")
+  div 
+    h2 {{bucket.name}}
+    data-bucket-activities

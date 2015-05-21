@@ -18,6 +18,9 @@ salesTools.config(function($routeProvider){
 		.when('/customizeActivities/', {
 			templateUrl: '/templates/customizeActivities',
 			controller: 'activitiesController'
+		})
+		.when('/activitiesBuckets/', {
+			templateUrl: '/templates/bucketSetup'
 		});
 });
 
