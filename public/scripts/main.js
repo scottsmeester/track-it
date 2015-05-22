@@ -44,8 +44,8 @@ salesTools.factory('ActivitiesBuckets', function($resource){
 	return {
 		model: model,
 		items: model.query()
-	}
-})
+	};
+});
 
 salesTools.controller('activitiesController', function($http, $scope, todayFactory, Activities){
 	$scope.activities = Activities.items;
@@ -72,7 +72,7 @@ salesTools.controller('activitiesController', function($http, $scope, todayFacto
 				// this.success = !$scope.success;
 				// console.log('type of success:',this.success);
 			});
-		}
+		};
 });
 
 salesTools.controller('userMgmtController', function($http, $scope){
