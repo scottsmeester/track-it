@@ -20,7 +20,8 @@ salesTools.config(function($routeProvider){
 			controller: 'activitiesController'
 		})
 		.when('/activitiesBuckets/', {
-			templateUrl: '/templates/bucketSetup'
+			templateUrl: '/templates/bucketSetup',
+			controller: 'activityBucketsController'
 		});
 });
 
@@ -34,6 +35,17 @@ salesTools.factory('Activities', function($resource){
 		items: model.query(),
 	};
 });
+
+salesTools.factory('ActivitiesBuckets', function($resource){
+	var model = $resource(
+			'api/activitiesBuckets/:id',
+			{id: '@_id'}
+		);
+	return {
+		model: model,
+		items: model.query()
+	}
+})
 
 salesTools.controller('activitiesController', function($http, $scope, todayFactory, Activities){
 	$scope.activities = Activities.items;
@@ -85,6 +97,17 @@ salesTools.controller('userMgmtController', function($http, $scope){
 			});
 		};
 });
+
+salesTools.controller('activityBucketsController', function($http, $scope, ActivitiesBuckets){
+	console.log('scope',$scope);
+	$scope.activityBuckets = ActivitiesBuckets.items;
+	// console.log('hello', ActivitiesBuckets);
+	// $scope.bucket.name = null;
+	// $http.get('/api/getActivityBuckets')
+	// 	.success(function(data){
+	// 		$scope.bucket.name = data.name;
+	// 	})
+})
 
 salesTools.factory('todayFactory', function($http){
 	var module = {};

@@ -6,6 +6,7 @@ var progressController = require('./controllers/progress.js');
 var todaysStuffController = require('./controllers/todaysStuff.js');
 var authenticationController = require('./controllers/authentication');
 var userMgmtController = require('./controllers/userMgmt');
+var activitiesBucketsController = require('./controllers/activitiesBuckets');
 // var favicon = require('serve-favicon');
 
 // Require mongoose
@@ -110,6 +111,10 @@ app.post('/api/activities/:id', activitiesController.logActivity);
 app.put('/api/updateActivity', todaysStuffController.updateActivity);
 app.get('/api/getUser/', userMgmtController.getUser);
 app.post('/api/updateUser/', userMgmtController.update);
+
+app.get('/api/activitiesBuckets', activitiesBucketsController.getAllBuckets);
+app.post('/api/activitiesBuckets/:id', activitiesBucketsController.moveBucket);
+
 
 // Templates route:
 app.get('/templates/:templateid', indexController.getTemplate);

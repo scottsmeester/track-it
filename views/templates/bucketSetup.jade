@@ -1,6 +1,7 @@
 h1 Choose your bucket...
 
-data-buckets(ng-repeat="bucket in buckets")
-  div 
-    h2 {{bucket.name}}
-    data-bucket-activities
+md-content
+	div(ng-repeat="bucket in buckets")
+		div 
+			h2 {{activityBuckets.bucket}}
+			{{activityBuckets.activities}}
