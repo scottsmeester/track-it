@@ -1,15 +1,13 @@
 // var _ = require('underscore');
 var mongoose = require('mongoose');
 
-var bucketSchema = new mongoose.Schema({
+var bucketSchema = mongoose.Schema({
 	bucket: String,
-	activities: [
-        {
+	activities: [{
             activity: String,
-            description: String,
-            points: Number
-        }
-    ]
+            points: Number,
+            description: String
+        }]
 });
 
 // var activities = mongoose.Schema({

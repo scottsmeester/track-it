@@ -43,7 +43,7 @@ salesTools.factory('ActivitiesBuckets', function($resource){
 		);
 	return {
 		model: model,
-		items: model.query()
+		items: model.query(),
 	};
 });
 
@@ -107,7 +107,7 @@ salesTools.controller('activityBucketsController', function($http, $scope, Activ
 	// 	.success(function(data){
 	// 		$scope.bucket.name = data.name;
 	// 	})
-})
+});
 
 salesTools.factory('todayFactory', function($http){
 	var module = {};

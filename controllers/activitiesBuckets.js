@@ -1,18 +1,18 @@
-var Activities = require('../models/activitiesBucketsModel.js');
-var User = require('../models/userModel.js');
-var activitiesController = {
+var ActivitiesBuckets = require('../models/activitiesBucketsModel.js');
+// var User = require('../models/userModel.js');
+var activitiesBucketsController = {
   getAllBuckets: function(req, res){
-    Activities.find({}, function(err, results){
-      console.log('err', err);
+    ActivitiesBuckets.find({}, function(err, results){
+      console.log('results', results);
       res.send(results);
     });
   },
   moveBucket: function(req, res) {
     var activityId = req.body._id;
-    Activities.findByIdAndUpdate(activityId, req.body, function(err, result){
+    ActivitiesBuckets.findByIdAndUpdate(activityId, req.body, function(err, result){
       res.send(result);
     });
   }
 };
 
-module.exports = activitiesController;
+module.exports = activitiesBucketsController;
