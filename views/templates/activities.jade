@@ -5,3 +5,49 @@ div.activities
         p {{activity.points}}
       div.activityName {{activity.activity}}
       div.activityDesc {{activity.description}}
+div(ng-controller='AppCtrl', layout='column', style='height:500px;')
+  section(layout='row', flex='')
+      md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id='left', md-is-locked-open="$mdMedia('gt-md')")
+        md-toolbar.md-theme-indigo
+          h1.md-toolbar-tools Sidenav Left
+        |       
+        md-content(layout-padding='', ng-controller='LeftCtrl')
+          md-button.md-primary(ng-click='close()', hide-gt-md='')
+            | Close Sidenav Left
+          |         
+          p(hide-md='', show-gt-md='')
+            | This sidenav is locked open on your device. To go back to the default behavior,
+            | narrow your display.
+      |     
+      md-content(flex='', layout-padding='')
+        div(layout='column', layout-fill='', layout-align='top center')
+          p
+            | The left sidenav will &apos;lock open&apos; on a medium (&gt;=960px wide) device.
+          |         
+          p
+            | The right sidenav will focus on a specific child element.
+          |         
+          div
+            md-button.md-primary(ng-click='toggleLeft()', hide-gt-md='')
+              | Toggle left
+          |         
+          div
+            md-button.md-primary(ng-click='toggleRight()')
+              | Toggle right
+        |       
+        div(flex='')
+      |     
+      md-sidenav.md-sidenav-right.md-whiteframe-z2(md-component-id='right')
+        md-toolbar.md-theme-light
+          h1.md-toolbar-tools Sidenav Right
+        |       
+        md-content(ng-controller='RightCtrl', layout-padding='')
+          form
+            md-input-container
+              label(for='testInput') Test input
+              |             
+              input#testInput(type='text', ng-model='data', md-sidenav-focus='')
+          |         
+          md-button.md-primary(ng-click='close()')
+            | Close Sidenav Right
+

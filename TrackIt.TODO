@@ -1,4 +1,9 @@
 TrackIt Todo's:
+ ☐ Give credit to client/account/campaign
+   ☐ Front end
+     ☐ Display search box to allow uers to filter down
+     ☐ Move box to left for 5 seconds to ask if user wants to link it to salesforce
+   ☐ Back end
  ☐ CRUD for activities
   ☐ Account management
     ☐ Redirect back to home page with message
