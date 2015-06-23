@@ -1,4 +1,4 @@
-// var _ = require('underscore');
+
 var mongoose = require('mongoose');
 
 var bucketSchema = mongoose.Schema({
@@ -10,12 +10,8 @@ var bucketSchema = mongoose.Schema({
         }]
 });
 
-// var activities = mongoose.Schema({
-// 	activity: String,
-// 	description: String,
-// 	points: Number
-// });
-
 var ActivitiesBuckets = mongoose.model('ActivitiesBuckets', bucketSchema);
+
+console.log('ActivitiesBuckets',ActivitiesBuckets);
 
 module.exports = ActivitiesBuckets;

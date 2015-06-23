@@ -1,4 +1,6 @@
 TrackIt Todo's:
+ ☐ Get activitiesBuckets data
+   ☐ Build api to give all of the data from activitiesBuckets
  ☐ Give credit to client/account/campaign
    ☐ Front end
      ☐ Display search box to allow uers to filter down

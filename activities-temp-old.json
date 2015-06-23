@@ -1,6 +1,3 @@
-// REMOVE THIS BEFORE USING
-// REMOTE SETUP:: mongoimport -h ds063449.mongolab.com:63449 -d heroku_app34985604 -c activities -u heroku_app34985604 -pe4jvt3bdsuhulsbet6fsadfnpo --file "/Users/scottsmeester/Documents/Website Dev Stuff/TrackIt/activities-temp.json" --type json --jsonArray
-// LOCAL SETUP::  mongoimport -d salesTools -c activities --file "/Users/ssmeester/Development/track-it/activities-temp.json" --type json --jsonArray
 [
     {
       "activity": "Goals Review",
