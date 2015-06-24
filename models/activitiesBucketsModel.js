@@ -10,8 +10,6 @@ var bucketSchema = mongoose.Schema({
         }]
 });
 
-var ActivitiesBuckets = mongoose.model('ActivitiesBuckets', bucketSchema);
+var ActivitiesBucket = mongoose.model('ActivitiesBuckets', bucketSchema);
 
-console.log('ActivitiesBuckets',ActivitiesBuckets);
-
-module.exports = ActivitiesBuckets;
+module.exports = ActivitiesBucket;
