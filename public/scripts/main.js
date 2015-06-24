@@ -38,7 +38,7 @@ salesTools.factory('Activities', function($resource){
 
 salesTools.factory('ActivitiesBuckets', function($resource){
 	var model = $resource(
-			'api/activitiesBuckets/:id',
+			'api/activitiesBuckets/',
 			{id: '@_id'}
 		);
 	return {
@@ -99,8 +99,8 @@ salesTools.controller('userMgmtController', function($http, $scope){
 });
 
 salesTools.controller('activityBucketsController', function($http, $scope, ActivitiesBuckets){
-	console.log('scope',$scope);
-	$scope.activityBuckets = ActivitiesBuckets.items;
+	// console.log('scope',$scope);
+	// $scope.activityBuckets = ActivitiesBuckets.getAll();
 	// console.log('hello', ActivitiesBuckets);
 	// $scope.bucket.name = null;
 	// $http.get('/api/getActivityBuckets')

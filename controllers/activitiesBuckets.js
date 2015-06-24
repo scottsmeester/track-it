@@ -3,7 +3,7 @@ var ActivitiesBuckets = require('../models/activitiesBucketsModel.js');
 var activitiesBucketsController = {
   getAllBuckets: function(req, res){
     ActivitiesBuckets.find({}, function(err, results){
-      // console.log('results', results);
+      console.log('results', results);
       res.send(results);
     });
   },
