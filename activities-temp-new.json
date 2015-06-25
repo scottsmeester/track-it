@@ -1,0 +1,203 @@
+// REMOVE THIS BEFORE USING
+// REMOTE SETUP:: mongoimport -h ds063449.mongolab.com:63449 -d heroku_app34985604 -c activities -u heroku_app34985604 -pe4jvt3bdsuhulsbet6fsadfnpo --file "/Users/scottsmeester/Documents/Website Dev Stuff/TrackIt/activities-temp.json" --type json --jsonArray
+// LOCAL SETUP::  mongoimport -d salesTools -c activitiesBuckets --file "/Users/ssmeester/Development/track-it/activities-temp.json" --type json --jsonArray
+[
+  {
+    "buckets": [
+      {
+        "name": "Find a Job",
+        "activities":[
+            {
+              "activity": "Goals Review",
+              "description": "Review your vision board. Look at your goals. Remind yourself why you\re doing this!",
+              "points": 3
+            },
+            {
+              "activity": "Digital Connection",
+              "description": "Be it phone, Twitter, Facebook, etc., connecting with somebody puts you and your message top of mind!",
+              "points": 3
+            },
+            {
+              "activity": "Voice",
+              "description": "Tried to call somebody, but only get voicemail? Leave a message with your purpose and hope...",
+              "points": 1
+            },
+            {
+              "activity": "Send Intro Letter",
+              "description": "Use the US Post Office to help get a higher than 90% open rate... with your resume in it.",
+              "points": 4
+            },
+            {
+              "activity": "Coffee with Influencer",
+              "description": "Coffee, lunch, whatever. If it's face to face with somebody ahead of you, it's good!",
+              "points": 5
+            },
+            {
+              "activity": "Professional Event",
+              "description": "Networking, meetups, presentations...",
+              "points": 7
+            },
+            {
+              "activity": "Exercise / Diet Yesterday",
+              "description": "Gotta get out and move. Did you eat well and exercize... yesterday?",
+              "points": 2
+            },
+            {
+              "activity": "Blog Post",
+              "description": "Develop some helpful content. Need an idea? Answer the last question a prospect asked.",
+              "points": 6
+            },
+            {
+              "activity": "Give Referral",
+              "description": "Help somebody else out and give a great referral!",
+              "points": 3
+            },
+            {
+              "activity": "Email Resume",
+              "description": "Write a personal email - still a great way to stay top of mind.",
+              "points": 1
+            },
+            {
+              "activity": "LinkedIn Connection",
+              "description": "Mark up a point for a new high-quality connection on LinkedIn.",
+              "points": 1
+            }
+          ]
+      },
+      {
+        "name": "Get More Clicks",
+        "activities":[
+            {
+              "activity": "Goals Review",
+              "description": "Review your vision board. Look at your goals. Remind yourself why you\re doing this!",
+              "points": 3
+            },
+            {
+              "activity": "Digital Connection",
+              "description": "Be it phone, Twitter, Facebook, etc., connecting with somebody puts you and your message top of mind!",
+              "points": 3
+            },
+            {
+              "activity": "Place Free Ad",
+              "description": "",
+              "points": 4
+            },
+            {
+              "activity": "Face to Face",
+              "description": "Coffee, lunch, whatever. If it's face to face, it's good!",
+              "points": 5
+            },
+            {
+              "activity": "Professional Event",
+              "description": "Just because you're doing digital marketing, never under estimate the power of a local relationship.",
+              "points": 7
+            },
+            {
+              "activity": "Exercise / Diet Yesterday",
+              "description": "Did you get some sort of movement... yesterday? Did you eat well... yesterday?",
+              "points": 2
+            },
+            {
+              "activity": "Blog Post",
+              "description": "Develop some helpful content. Need an idea? Answer the last question a prospect asked.",
+              "points": 6
+            },
+            {
+              "activity": "Give Referral",
+              "description": "Help somebody else out and give a great referral!",
+              "points": 3
+            },
+            {
+              "activity": "Newsletter Article",
+              "description": "Write an information newsletter - a great way to serve your current clients and customers.",
+              "points": 6
+            },
+            {
+              "activity": "E-mail",
+              "description": "Write a personal email - still a great way to stay top of mind.",
+              "points": 1
+            },
+            {
+              "activity": "Thank You Note",
+              "description": "Do what they're not expecting and send a note in snail mail.",
+              "points": 1
+            },
+            {
+              "activity": "LinkedIn Connection",
+              "description": "Mark up a point for a new high-quality connection on LinkedIn.",
+              "points": 1
+            }
+          ]
+      },
+      {
+        "name": "Fill Sales Pipeline",
+        "activities":[
+            {
+              "activity": "Goals Review",
+              "description": "Review your vision board. Look at your goals. Remind yourself why you\re doing this!",
+              "points": 3
+            },
+            {
+              "activity": "Digital Connection",
+              "description": "Be it phone, Twitter, Facebook, etc., connecting with somebody puts you and your message top of mind!",
+              "points": 3
+            },
+            {
+              "activity": "Voice",
+              "description": "Tried to call somebody, but only get voicemail? Leave a message with your purpose and hope...",
+              "points": 1
+            },
+            {
+              "activity": "Hand Written Correspondence",
+              "description": "Use the US Post Office to help get a higher than 90% open rate!",
+              "points": 4
+            },
+            {
+              "activity": "Face to Face",
+              "description": "Coffee, lunch, whatever. If it's face to face, it's good!",
+              "points": 5
+            },
+            {
+              "activity": "Professional Event",
+              "description": "Networking, meetups, presentations...",
+              "points": 7
+            },
+            {
+              "activity": "Exercise / Diet Yesterday",
+              "description": "Did you get some sort of movement... yesterday? Did you eat well... yesterday?",
+              "points": 2
+            },
+            {
+              "activity": "Blog Post",
+              "description": "Develop some helpful content. Need an idea? Answer the last question a prospect asked.",
+              "points": 6
+            },
+            {
+              "activity": "Give Referral",
+              "description": "Help somebody else out and give a great referral!",
+              "points": 3
+            },
+            {
+              "activity": "Newsletter Article",
+              "description": "Write an information newsletter - a great way to serve your current clients and customers.",
+              "points": 6
+            },
+            {
+              "activity": "E-mail",
+              "description": "Write a personal email - still a great way to stay top of mind.",
+              "points": 1
+            },
+            {
+              "activity": "Thank You Note",
+              "description": "Nothing like getting a personal note.",
+              "points": 1
+            },
+            {
+              "activity": "LinkedIn Connection",
+              "description": "Mark up a point for a new high-quality connection on LinkedIn.",
+              "points": 1
+            }
+        ]
+      }
+    ]}
+]

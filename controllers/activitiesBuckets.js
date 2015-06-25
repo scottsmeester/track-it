@@ -1,4 +1,5 @@
 var ActivitiesBuckets = require('../models/activitiesBucketsModel.js');
+
 // var User = require('../models/userModel.js');
 var activitiesBucketsController = {
   getAllBuckets: function(req, res){
