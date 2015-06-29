@@ -18,10 +18,6 @@ salesTools.config(function($routeProvider){
 		.when('/customizeActivities/', {
 			templateUrl: '/templates/customizeActivities',
 			controller: 'activitiesController'
-		})
-		.when('/activitiesBuckets/', {
-			templateUrl: '/templates/bucketSetup',
-			controller: 'activityBucketController'
 		});
 });
 
@@ -36,22 +32,9 @@ salesTools.factory('Activities', function($resource){
 	};
 });
 
-salesTools.factory('ActivitiesBuckets', function($resource){
-	var model = $resource(
-			'api/activitiesBuckets',
-			{id: '@_id'}
-		);
-	return {
-		model: model,
-		items: model.query(),
-	};
-});
-
 salesTools.controller('activitiesController', function($http, $scope, todayFactory, Activities){
 	$scope.activities = Activities.items;
 	$scope.success = false;
-
-	// $scope.item = {};
 
 	$scope.logActivity = function(){
 		var newItem = new Activities.model(this.activity);
@@ -65,19 +48,14 @@ salesTools.controller('activitiesController', function($http, $scope, todayFacto
 
 	$scope.saveActivityChanges = function(){
 		$scope.activity = {};
-		// var that = this;
 		$scope.activity = this.activity;
 		$http.post('/api/saveActivityChanges/', $scope.activity)
 			.success(function(data){
-				// this.success = !$scope.success;
-				// console.log('type of success:',this.success);
 			});
 		};
 });
 
 salesTools.controller('userMgmtController', function($http, $scope){
-	// $scope.user = GetUser.items;
-	// $scope.item = {};
 	$scope.item = {};
 	$scope.item.firstname = null;
 	$scope.item.lastname = null;
@@ -98,17 +76,6 @@ salesTools.controller('userMgmtController', function($http, $scope){
 		};
 });
 
-salesTools.controller('activityBucketController', function($http, $scope, ActivitiesBuckets){
-	// console.log('scope',$scope);
-	$scope.activityBuckets = ActivitiesBuckets.items;
-	console.log('hello', ActivitiesBuckets);
-	// $scope.bucket.name = null;
-	// $http.get('/api/getActivityBuckets')
-	// 	.success(function(data){
-	// 		$scope.bucket.name = data.name;
-	// 	})
-});
-
 salesTools.factory('todayFactory', function($http){
 	var module = {};
 	module.today = null;
@@ -118,7 +85,6 @@ salesTools.factory('todayFactory', function($http){
 		$http.get('/api/todaysStuff')
 			.success(function(data){
 				module.today = data;
-				// console.log(module.today);
 				module.goal = data.goal;
 				module.todaysTotal = data.loggedItems
 				.filter(function(item){
@@ -135,7 +101,6 @@ salesTools.factory('todayFactory', function($http){
 	return module;
 });
 
-// goalProgres Directive:
 salesTools.directive('goalprogress', function(){
 	return {
 		restrict: 'E',
@@ -154,7 +119,6 @@ salesTools.directive('todaysstuff', function(){
 			$scope.today = todayFactory;
 			$scope.isCollapsed = false;
 			$scope.updateActivity = function(){
-					// console.log('hello',this);
 				$http.put('/api/updateActivity/', {id: this.log._id})
 					.success(function(data){
 						todayFactory.update();

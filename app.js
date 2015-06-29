@@ -111,8 +111,6 @@ app.post('/api/activities/:id', activitiesController.logActivity);
 app.put('/api/updateActivity', todaysStuffController.updateActivity);
 app.get('/api/getUser/', userMgmtController.getUser);
 app.post('/api/updateUser/', userMgmtController.update);
-app.get('/api/activitiesBuckets/', bucketsController.getAllBuckets);
-// app.post('/api/activitiesBuckets/:id', activitiesBucketsController.moveBucket);
 
 
 // Templates route:
