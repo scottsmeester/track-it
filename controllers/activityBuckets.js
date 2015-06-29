@@ -4,7 +4,7 @@ var ActivityBucket = require('../models/activityBucketsModel.js');
 var bucketsController = {
   getAllBuckets: function(req, res){
     ActivityBucket.find({}, function(err, results){
-      console.log('req', req);
+      console.log('err', err);
       res.send(results);
     });
   },

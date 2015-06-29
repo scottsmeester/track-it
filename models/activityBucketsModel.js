@@ -1,4 +1,3 @@
-
 var mongoose = require('mongoose');
 
 var bucketSchema = mongoose.Schema({
@@ -8,8 +7,8 @@ var bucketSchema = mongoose.Schema({
 			activities:[
 				{
 		            activity: String,
-		            points: Number,
-		            description: String
+		            description: String,
+		            points: Number
 		        }
 	        ]
 		}
@@ -17,5 +16,7 @@ var bucketSchema = mongoose.Schema({
 });
 
 var ActivityBucket = mongoose.model('ActivityBuckets', bucketSchema);
+
+console.log('ActivityBucket', ActivityBucket);
 
 module.exports = ActivityBucket;

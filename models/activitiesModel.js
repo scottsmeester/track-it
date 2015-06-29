@@ -1,4 +1,3 @@
-// var _ = require('underscore');
 var mongoose = require('mongoose');
 
 var activitySchema = mongoose.Schema({
