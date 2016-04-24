@@ -3,5 +3,5 @@ archived-versions
 models/seedScripts
 npm-debug.log
 .DS_Store
-oauth.js
 /.idea
+config.js

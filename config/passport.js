@@ -1,6 +1,6 @@
 // First, we'll need passport...
 var passport = require('passport');
-var config = require('../oauth.js');
+var config = require('../config.js');
 
 // We also need the strategy defined by our 'passport-local' module.
 // Strategies are how passport abstracts the logic of working with

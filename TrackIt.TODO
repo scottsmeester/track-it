@@ -1,19 +1,17 @@
 TrackIt Todo's:
+ ☐ Create backend API service for API calls to GET SalesForce contacts
  ☐ Get activitiesBuckets data
    ☐ Build api to give all of the data from activitiesBuckets
- ☐ Give credit to client/account/campaign
    ☐ Front end
      ☐ Display search box to allow uers to filter down
      ☐ Move box to left for 5 seconds to ask if user wants to link it to salesforce
    ☐ Back end
- ☐ CRUD for activities
-  ☐ Account management
-    ☐ Redirect back to home page with message
-    ☐ Update daily goal
-      ☐ Slider for user's daily goal
-  ☐ Integrate with salesforce
-  ☐ CRUD activities
-  ☐ Get help squelching Git push message
+ ☐ Account management
+   ☐ Redirect back to home page with message
+   ☐ Update daily goal
+     ☐ Slider for user's daily goal
+  ✔ CRUD activities @done (16-04-20 09:33)
+  ✔ Get help squelching Git push message @done (16-04-20 09:32)
 
 Reformatting page:
   ☐ Format "Today's History"
@@ -26,6 +24,9 @@ Nice to Have's:
   ☐ Get goal system working
   ☐ Randomize colors behind the activities
   ☐ Icons for each activity
+  ☐ Integrate with salesforce
+  ☐ Login with Facebook, Google
+  ☐ Give credit to client/account/campaign
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
