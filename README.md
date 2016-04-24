@@ -2,7 +2,7 @@
 
 ## You will need a config.js file for Salesforce login. It shoudl contain:
 
-var ids = {
+```var ids = {
 salesforce: {
  consumerKey: '<<YOUR KEY>>',
  consumerSecret: '<<YOUR SECRET>>',
@@ -10,4 +10,4 @@ salesforce: {
 }
 };
 
-module.exports = ids;
+module.exports = ids;```
