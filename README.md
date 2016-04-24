@@ -1,6 +1,6 @@
 # track-it
 
-## You will need a config.js file for Salesforce login. It shoudl contain:
+### You will need a config.js file for Salesforce login in your root directory. It should contain:
 
 ```
 var ids = {
