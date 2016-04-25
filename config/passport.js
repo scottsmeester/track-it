@@ -74,19 +74,28 @@ var forceDotComStrategy = new ForceDotComStrategy(
   {
     clientID: config.salesforce.consumerKey,
     clientSecret: config.salesforce.consumerSecret,
-    // scope: ['id'],
     callbackURL: config.salesforce.callbackURL
   },
   function verify(token, refreshToken, profile, done) {
+
+    // console.log('token', token);
 
     User.findOne({oauthID: profile._raw.user_id}, function(err, user) {
       if (err) {
         console.log(err);
       }
       if (!err && user !== null) {
+        user.sf_access_token = token;
 
-        // console.log(user);
-        done(null, user);
+        user.save(function(err){
+          if (err) {
+            console.log(err);
+            return done(null, false);
+          }
+          else {
+            done(null, user);
+          }
+        });
       } 
       else {
         var newUser = new User({
@@ -94,7 +103,10 @@ var forceDotComStrategy = new ForceDotComStrategy(
           firstname: profile._raw.first_name,
           lastname: profile._raw.last_name,
           email: profile._raw.email,
+          sf_access_token: token
         });
+        // newUser.access_token = token;
+        // console.log('newUser.access_token', newUser.access_token)
         newUser.save(function(err) {
           if (err) {
             // console.log("error: ", err);

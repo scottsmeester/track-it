@@ -17,6 +17,4 @@ var bucketSchema = mongoose.Schema({
 
 var ActivityBucket = mongoose.model('ActivityBuckets', bucketSchema);
 
-console.log('ActivityBucket', ActivityBucket);
-
 module.exports = ActivityBucket;

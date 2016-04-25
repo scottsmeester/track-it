@@ -1,13 +1,14 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var indexController = require('./controllers/index.js');
-var activitiesController = require('./controllers/activities.js');
-var progressController = require('./controllers/progress.js');
-var todaysStuffController = require('./controllers/todaysStuff.js');
-var authenticationController = require('./controllers/authentication');
-var userMgmtController = require('./controllers/userMgmt');
-var bucketsController = require('./controllers/activityBuckets');
-// var favicon = require('serve-favicon');
+var express = require('express')
+var bodyParser = require('body-parser')
+var indexController = require('./controllers/index.js')
+var activitiesController = require('./controllers/activities.js')
+var progressController = require('./controllers/progress.js')
+var todaysStuffController = require('./controllers/todaysStuff.js')
+var authenticationController = require('./controllers/authentication')
+var userMgmtController = require('./controllers/userMgmt')
+var bucketsController = require('./controllers/activityBuckets')
+var saasCalls = require('./controllers/saasCalls')
+// var favicon = require('serve-favicon')
 
 // Require mongoose
 var mongoose = require('mongoose');
@@ -86,31 +87,31 @@ app.get('/auth/salesforce',
 app.get('/auth/salesforce/callback',
   passport.authenticate('forcedotcom', { failureRedirect: '/oops' }),
   function(req, res) {
-   res.redirect('/');
-});
+   res.redirect('/')
+})
 
 // ***** IMPORTANT ***** //
 // By including this middleware (defined in our config/passport.js 
 // module.exports), We can prevent unauthorized access to any route 
 // handler defined after this call to .use()
-app.use(passportConfig.ensureAuthenticated);
+app.use(passportConfig.ensureAuthenticated)
 
 // find the users activities to see if there are any
 // if none, it will fill the seed the DB.
-// app.get('/', userMgmtController.checkActivities);
+// app.get('/', userMgmtController.checkActivities)
 
-app.get('/', indexController.index);
+app.get('/', indexController.index)
 
 // Api-specific routes:
-app.get('/api/activities', activitiesController.getAll);
-// app.get('/api/getActivity/', activitiesController.getActivity);
-app.post('/api/saveActivityChanges', activitiesController.saveActivityChanges);
-app.get('/api/progress', progressController.getToday);
-app.get('/api/todaysStuff', todaysStuffController.getTodaysStuff);
-app.post('/api/activities/:id', activitiesController.logActivity);
-app.put('/api/updateActivity', todaysStuffController.updateActivity);
-app.get('/api/getUser/', userMgmtController.getUser);
-app.post('/api/updateUser/', userMgmtController.update);
+app.get('/api/activities', activitiesController.getAll)
+app.post('/api/saveActivityChanges', activitiesController.saveActivityChanges)
+app.get('/api/progress', progressController.getToday)
+app.get('/api/todaysStuff', todaysStuffController.getTodaysStuff)
+app.post('/api/activities/:id', activitiesController.logActivity)
+app.put('/api/updateActivity', todaysStuffController.updateActivity)
+app.get('/api/getUser/', userMgmtController.getUser)
+app.post('/api/updateUser/', userMgmtController.update)
+app.get('/api/getSFContacts', saasCalls.getSFContacts)
 
 
 // Templates route:
