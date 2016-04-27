@@ -1,8 +1,12 @@
-div.activities
-  div.activity(md-ink-ripple ng-repeat="activity in activities" ng-click="logActivity()")
-    div.activityBorder
-      div.
-      div.activityPoints
-        p {{activity.points}}
-      div.activityName {{activity.activity}}
-      div.activityDesc {{activity.description}}
+.activities
+  .activityWrapper(ng-repeat="activity in activities")
+    //- md-button.md-fab(aria-label='Eat cake')
+    //-   md-icon(md-svg-src='img/icons/cake.svg')
+    .activity(md-ink-ripple ng-click="logActivity($event)")
+      .activityBorder
+        
+        .activityPoints
+          p {{activity.points}}
+        .activityName {{activity.activity}}
+        .activityDesc {{activity.description}}
+

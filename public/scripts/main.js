@@ -32,18 +32,27 @@ salesTools.factory('Activities', function($resource){
 	};
 });
 
-salesTools.controller('activitiesController', function($http, $scope, todayFactory, Activities){
+salesTools.controller('activitiesController', function($http, $scope, todayFactory, Activities, $timeout){
 	$scope.activities = Activities.items;
 	$scope.success = false;
 
-	$scope.logActivity = function(){
+	$scope.logActivity = function(event){
+		angular.element(event.currentTarget.parentNode).addClass('moveDownActivity')
+		console.log('event', event)
+		// angular.element('activityWrapper').addClass('moveDownActivity')
+
 		var newItem = new Activities.model(this.activity);
 		newItem.$save(function(loggedActivity){
 			// Make sure to convert the JSON from the server
 			// into a useable resource instance,
 			// then push it into the model list
 			todayFactory.update();
+			$timeout(function() {
+       angular.element(event.currentTarget.parentNode).removeClass('moveDownActivity');
+   }, 5000);    
 		});
+		// make button smaller with css to give credit
+
 	};
 
 	$scope.saveActivityChanges = function(){

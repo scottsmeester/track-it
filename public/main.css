@@ -205,3 +205,9 @@ input.form-control.form-control.bfh-number {
 .md-raised {
   width: 95px;
 }
+.reduceButton {
+  width: 80%;
+}
+.moveDownActivity {
+  margin-bottom: 40px;
+}
